@@ -16,12 +16,6 @@ export class MulticastGroup extends jspb.Message {
   getMcAddr(): string;
   setMcAddr(value: string): void;
 
-  getMcNwkSKey(): string;
-  setMcNwkSKey(value: string): void;
-
-  getMcAppSKey(): string;
-  setMcAppSKey(value: string): void;
-
   getFCnt(): number;
   setFCnt(value: number): void;
 
@@ -55,8 +49,6 @@ export namespace MulticastGroup {
     id: string,
     name: string,
     mcAddr: string,
-    mcNwkSKey: string,
-    mcAppSKey: string,
     fCnt: number,
     groupType: MulticastGroupTypeMap[keyof MulticastGroupTypeMap],
     dr: number,

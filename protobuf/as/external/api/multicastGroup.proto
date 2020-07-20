@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package api;
 
-option go_package = "github.com/brocaar/chirpstack-api/go/v3/as/external/api";
+option go_package = "github.com/gyh1621/chirpstack-api/go/v3/as/external/api";
 
 import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
@@ -105,31 +105,25 @@ message MulticastGroup {
     // Multicast address (HEX encoded DevAddr).
     string mc_addr = 3;
 
-    // Multicast network session key (HEX encoded AES128 key).
-    string mc_nwk_s_key = 4;
-
-    // Multicast application session key (HEX encoded AES128 key).
-    string mc_app_s_key = 5;
-
     // Frame-counter.
-    uint32 f_cnt = 6;
+    uint32 f_cnt = 4;
 
     // Multicast type.
-    MulticastGroupType group_type = 7;
+    MulticastGroupType group_type = 5;
 
     // Data-rate.
-    uint32 dr = 8;
+    uint32 dr = 6;
 
     // Frequency (Hz).
-    uint32 frequency = 9;
+    uint32 frequency = 7;
 
     // Ping-slot period.
     // Mandatory for Class-B multicast groups.
-    uint32 ping_slot_period = 10;
+    uint32 ping_slot_period = 8;
 
     // Service-profile ID.
     // After creation, this can not be updated.
-    string service_profile_id = 11 [json_name = "serviceProfileID"];
+    string service_profile_id = 9 [json_name = "serviceProfileID"];
 }
 
 message MulticastGroupListItem {

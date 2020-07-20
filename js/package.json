@@ -1,6 +1,6 @@
 {
   "name": "@chirpstack/chirpstack-api",
-  "version": "3.7.2",
+  "version": "3.7.3",
   "description": "Chirpstack JS and TS API",
   "license": "MIT",
   "devDependencies": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/google-protobuf": "^3.7.2",
     "google-protobuf": "^3.10.0",
+    "request": "^2.88.2",
     "grpc": "^1.24.2"
   }
 }

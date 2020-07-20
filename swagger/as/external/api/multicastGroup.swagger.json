@@ -452,14 +452,6 @@
           "type": "string",
           "description": "Multicast address (HEX encoded DevAddr)."
         },
-        "mcNwkSKey": {
-          "type": "string",
-          "description": "Multicast network session key (HEX encoded AES128 key)."
-        },
-        "mcAppSKey": {
-          "type": "string",
-          "description": "Multicast application session key (HEX encoded AES128 key)."
-        },
         "fCnt": {
           "type": "integer",
           "format": "int64",

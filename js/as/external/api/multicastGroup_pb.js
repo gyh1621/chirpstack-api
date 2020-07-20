@@ -80,8 +80,6 @@ proto.api.MulticastGroup.toObject = function(includeInstance, msg) {
     id: msg.getId(),
     name: msg.getName(),
     mcAddr: msg.getMcAddr(),
-    mcNwkSKey: msg.getMcNwkSKey(),
-    mcAppSKey: msg.getMcAppSKey(),
     fCnt: msg.getFCnt(),
     groupType: msg.getGroupType(),
     dr: msg.getDr(),
@@ -137,34 +135,26 @@ proto.api.MulticastGroup.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMcAddr(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setMcNwkSKey(value);
-      break;
-    case 5:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setMcAppSKey(value);
-      break;
-    case 6:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setFCnt(value);
       break;
-    case 7:
+    case 5:
       var value = /** @type {!proto.api.MulticastGroupType} */ (reader.readEnum());
       msg.setGroupType(value);
       break;
-    case 8:
+    case 6:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setDr(value);
       break;
-    case 9:
+    case 7:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setFrequency(value);
       break;
-    case 10:
+    case 8:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setPingSlotPeriod(value);
       break;
-    case 11:
+    case 9:
       var value = /** @type {string} */ (reader.readString());
       msg.setServiceProfileId(value);
       break;
@@ -227,59 +217,45 @@ proto.api.MulticastGroup.prototype.serializeBinaryToWriter = function (writer) {
       f
     );
   }
-  f = this.getMcNwkSKey();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
-      f
-    );
-  }
-  f = this.getMcAppSKey();
-  if (f.length > 0) {
-    writer.writeString(
-      5,
-      f
-    );
-  }
   f = this.getFCnt();
   if (f !== 0) {
     writer.writeUint32(
-      6,
+      4,
       f
     );
   }
   f = this.getGroupType();
   if (f !== 0.0) {
     writer.writeEnum(
-      7,
+      5,
       f
     );
   }
   f = this.getDr();
   if (f !== 0) {
     writer.writeUint32(
-      8,
+      6,
       f
     );
   }
   f = this.getFrequency();
   if (f !== 0) {
     writer.writeUint32(
-      9,
+      7,
       f
     );
   }
   f = this.getPingSlotPeriod();
   if (f !== 0) {
     writer.writeUint32(
-      10,
+      8,
       f
     );
   }
   f = this.getServiceProfileId();
   if (f.length > 0) {
     writer.writeString(
-      11,
+      9,
       f
     );
   }
@@ -341,122 +317,92 @@ proto.api.MulticastGroup.prototype.setMcAddr = function(value) {
 
 
 /**
- * optional string mc_nwk_s_key = 4;
- * @return {string}
- */
-proto.api.MulticastGroup.prototype.getMcNwkSKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
-};
-
-
-/** @param {string} value  */
-proto.api.MulticastGroup.prototype.setMcNwkSKey = function(value) {
-  jspb.Message.setField(this, 4, value);
-};
-
-
-/**
- * optional string mc_app_s_key = 5;
- * @return {string}
- */
-proto.api.MulticastGroup.prototype.getMcAppSKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
-};
-
-
-/** @param {string} value  */
-proto.api.MulticastGroup.prototype.setMcAppSKey = function(value) {
-  jspb.Message.setField(this, 5, value);
-};
-
-
-/**
- * optional uint32 f_cnt = 6;
+ * optional uint32 f_cnt = 4;
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getFCnt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
 };
 
 
 /** @param {number} value  */
 proto.api.MulticastGroup.prototype.setFCnt = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setField(this, 4, value);
 };
 
 
 /**
- * optional MulticastGroupType group_type = 7;
+ * optional MulticastGroupType group_type = 5;
  * @return {!proto.api.MulticastGroupType}
  */
 proto.api.MulticastGroup.prototype.getGroupType = function() {
-  return /** @type {!proto.api.MulticastGroupType} */ (jspb.Message.getFieldProto3(this, 7, 0));
+  return /** @type {!proto.api.MulticastGroupType} */ (jspb.Message.getFieldProto3(this, 5, 0));
 };
 
 
 /** @param {!proto.api.MulticastGroupType} value  */
 proto.api.MulticastGroup.prototype.setGroupType = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setField(this, 5, value);
 };
 
 
 /**
- * optional uint32 dr = 8;
+ * optional uint32 dr = 6;
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getDr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
 };
 
 
 /** @param {number} value  */
 proto.api.MulticastGroup.prototype.setDr = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setField(this, 6, value);
 };
 
 
 /**
- * optional uint32 frequency = 9;
+ * optional uint32 frequency = 7;
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getFrequency = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 7, 0));
 };
 
 
 /** @param {number} value  */
 proto.api.MulticastGroup.prototype.setFrequency = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setField(this, 7, value);
 };
 
 
 /**
- * optional uint32 ping_slot_period = 10;
+ * optional uint32 ping_slot_period = 8;
  * @return {number}
  */
 proto.api.MulticastGroup.prototype.getPingSlotPeriod = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
 };
 
 
 /** @param {number} value  */
 proto.api.MulticastGroup.prototype.setPingSlotPeriod = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setField(this, 8, value);
 };
 
 
 /**
- * optional string service_profile_id = 11;
+ * optional string service_profile_id = 9;
  * @return {string}
  */
 proto.api.MulticastGroup.prototype.getServiceProfileId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 11, ""));
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
 };
 
 
 /** @param {string} value  */
 proto.api.MulticastGroup.prototype.setServiceProfileId = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setField(this, 9, value);
 };
 
 
