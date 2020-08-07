@@ -20,6 +20,11 @@ class FUOTADeploymentServiceStub(object):
                 request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForDeviceRequest.SerializeToString,
                 response_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForDeviceResponse.FromString,
                 )
+        self.CreateForGroup = channel.unary_unary(
+                '/api.FUOTADeploymentService/CreateForGroup',
+                request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForGroupRequest.SerializeToString,
+                response_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForGroupResponse.FromString,
+                )
         self.Get = channel.unary_unary(
                 '/api.FUOTADeploymentService/Get',
                 request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.GetFUOTADeploymentRequest.SerializeToString,
@@ -48,6 +53,13 @@ class FUOTADeploymentServiceServicer(object):
 
     def CreateForDevice(self, request, context):
         """CreateForDevice creates a deployment for the given DevEUI.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateForGroup(self, request, context):
+        """CreateForGroup creates a deployment for the given multicast group id.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -88,6 +100,11 @@ def add_FUOTADeploymentServiceServicer_to_server(servicer, server):
                     servicer.CreateForDevice,
                     request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForDeviceRequest.FromString,
                     response_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForDeviceResponse.SerializeToString,
+            ),
+            'CreateForGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateForGroup,
+                    request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForGroupRequest.FromString,
+                    response_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForGroupResponse.SerializeToString,
             ),
             'Get': grpc.unary_unary_rpc_method_handler(
                     servicer.Get,
@@ -134,6 +151,23 @@ class FUOTADeploymentService(object):
         return grpc.experimental.unary_unary(request, target, '/api.FUOTADeploymentService/CreateForDevice',
             chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForDeviceRequest.SerializeToString,
             chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForDeviceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateForGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.FUOTADeploymentService/CreateForGroup',
+            chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForGroupRequest.SerializeToString,
+            chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.CreateFUOTADeploymentForGroupResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

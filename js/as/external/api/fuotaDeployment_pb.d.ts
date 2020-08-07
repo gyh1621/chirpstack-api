@@ -173,6 +173,52 @@ export namespace CreateFUOTADeploymentForDeviceResponse {
   }
 }
 
+export class CreateFUOTADeploymentForGroupRequest extends jspb.Message {
+  getMcGroupId(): string;
+  setMcGroupId(value: string): void;
+
+  hasFuotaDeployment(): boolean;
+  clearFuotaDeployment(): void;
+  getFuotaDeployment(): FUOTADeployment | undefined;
+  setFuotaDeployment(value?: FUOTADeployment): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateFUOTADeploymentForGroupRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateFUOTADeploymentForGroupRequest): CreateFUOTADeploymentForGroupRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CreateFUOTADeploymentForGroupRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateFUOTADeploymentForGroupRequest;
+  static deserializeBinaryFromReader(message: CreateFUOTADeploymentForGroupRequest, reader: jspb.BinaryReader): CreateFUOTADeploymentForGroupRequest;
+}
+
+export namespace CreateFUOTADeploymentForGroupRequest {
+  export type AsObject = {
+    mcGroupId: string,
+    fuotaDeployment?: FUOTADeployment.AsObject,
+  }
+}
+
+export class CreateFUOTADeploymentForGroupResponse extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateFUOTADeploymentForGroupResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateFUOTADeploymentForGroupResponse): CreateFUOTADeploymentForGroupResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CreateFUOTADeploymentForGroupResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateFUOTADeploymentForGroupResponse;
+  static deserializeBinaryFromReader(message: CreateFUOTADeploymentForGroupResponse, reader: jspb.BinaryReader): CreateFUOTADeploymentForGroupResponse;
+}
+
+export namespace CreateFUOTADeploymentForGroupResponse {
+  export type AsObject = {
+    id: string,
+  }
+}
+
 export class GetFUOTADeploymentRequest extends jspb.Message {
   getId(): string;
   setId(value: string): void;

@@ -30,6 +30,28 @@ function deserialize_api_CreateFUOTADeploymentForDeviceResponse(buffer_arg) {
   return as_external_api_fuotaDeployment_pb.CreateFUOTADeploymentForDeviceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_api_CreateFUOTADeploymentForGroupRequest(arg) {
+  if (!(arg instanceof as_external_api_fuotaDeployment_pb.CreateFUOTADeploymentForGroupRequest)) {
+    throw new Error('Expected argument of type api.CreateFUOTADeploymentForGroupRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_CreateFUOTADeploymentForGroupRequest(buffer_arg) {
+  return as_external_api_fuotaDeployment_pb.CreateFUOTADeploymentForGroupRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_api_CreateFUOTADeploymentForGroupResponse(arg) {
+  if (!(arg instanceof as_external_api_fuotaDeployment_pb.CreateFUOTADeploymentForGroupResponse)) {
+    throw new Error('Expected argument of type api.CreateFUOTADeploymentForGroupResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_CreateFUOTADeploymentForGroupResponse(buffer_arg) {
+  return as_external_api_fuotaDeployment_pb.CreateFUOTADeploymentForGroupResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_api_GetFUOTADeploymentDeviceRequest(arg) {
   if (!(arg instanceof as_external_api_fuotaDeployment_pb.GetFUOTADeploymentDeviceRequest)) {
     throw new Error('Expected argument of type api.GetFUOTADeploymentDeviceRequest');
@@ -132,6 +154,18 @@ var FUOTADeploymentServiceService = exports.FUOTADeploymentServiceService = {
     requestDeserialize: deserialize_api_CreateFUOTADeploymentForDeviceRequest,
     responseSerialize: serialize_api_CreateFUOTADeploymentForDeviceResponse,
     responseDeserialize: deserialize_api_CreateFUOTADeploymentForDeviceResponse,
+  },
+  // CreateForGroup creates a deployment for the given multicast group id.
+  createForGroup: {
+    path: '/api.FUOTADeploymentService/CreateForGroup',
+    requestStream: false,
+    responseStream: false,
+    requestType: as_external_api_fuotaDeployment_pb.CreateFUOTADeploymentForGroupRequest,
+    responseType: as_external_api_fuotaDeployment_pb.CreateFUOTADeploymentForGroupResponse,
+    requestSerialize: serialize_api_CreateFUOTADeploymentForGroupRequest,
+    requestDeserialize: deserialize_api_CreateFUOTADeploymentForGroupRequest,
+    responseSerialize: serialize_api_CreateFUOTADeploymentForGroupResponse,
+    responseDeserialize: deserialize_api_CreateFUOTADeploymentForGroupResponse,
   },
   // Get returns the fuota deployment for the given id.
   get: {

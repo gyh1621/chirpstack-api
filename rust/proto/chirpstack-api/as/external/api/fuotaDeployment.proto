@@ -20,6 +20,14 @@ service FUOTADeploymentService {
         };
     }
 
+    // CreateForGroup creates a deployment for the given multicast group id.
+    rpc CreateForGroup(CreateFUOTADeploymentForGroupRequest) returns (CreateFUOTADeploymentForGroupResponse) {
+         option(google.api.http) = {
+             post: "/api/multicast-groups/{mc_group_id}/fuota-deployments"
+             body: "*"
+         };
+    }
+
     // Get returns the fuota deployment for the given id.
     rpc Get(GetFUOTADeploymentRequest) returns (GetFUOTADeploymentResponse) {
         option(google.api.http) = {
@@ -139,6 +147,19 @@ message CreateFUOTADeploymentForDeviceRequest {
 }
 
 message CreateFUOTADeploymentForDeviceResponse {
+    // ID of the created deployment (string formatted UUID).
+    string id = 1;
+}
+
+message CreateFUOTADeploymentForGroupRequest {
+    // ID of multicast group (string formatted UUID).
+    string mc_group_id = 1 [json_name = "multicastGroupID"];
+
+    // FUOTA deployment.
+    FUOTADeployment fuota_deployment = 2;
+}
+
+message CreateFUOTADeploymentForGroupResponse {
     // ID of the created deployment (string formatted UUID).
     string id = 1;
 }

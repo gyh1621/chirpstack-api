@@ -199,6 +199,40 @@
           "FUOTADeploymentService"
         ]
       }
+    },
+    "/api/multicast-groups/{mc_group_id}/fuota-deployments": {
+      "post": {
+        "summary": "CreateForGroup creates a deployment for the given multicast group id.",
+        "operationId": "CreateForGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateFUOTADeploymentForGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "mc_group_id",
+            "description": "ID of multicast group (string formatted UUID).",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateFUOTADeploymentForGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FUOTADeploymentService"
+        ]
+      }
     }
   },
   "definitions": {
@@ -216,6 +250,28 @@
       }
     },
     "apiCreateFUOTADeploymentForDeviceResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID of the created deployment (string formatted UUID)."
+        }
+      }
+    },
+    "apiCreateFUOTADeploymentForGroupRequest": {
+      "type": "object",
+      "properties": {
+        "multicastGroupID": {
+          "type": "string",
+          "description": "ID of multicast group (string formatted UUID)."
+        },
+        "fuotaDeployment": {
+          "$ref": "#/definitions/apiFUOTADeployment",
+          "description": "FUOTA deployment."
+        }
+      }
+    },
+    "apiCreateFUOTADeploymentForGroupResponse": {
       "type": "object",
       "properties": {
         "id": {
