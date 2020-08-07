@@ -80,6 +80,7 @@ proto.api.FUOTADeployment.toObject = function(includeInstance, msg) {
     frequency: msg.getFrequency(),
     payload: msg.getPayload_asB64(),
     redundancy: msg.getRedundancy(),
+    fragAlgo: msg.getFragAlgo(),
     multicastTimeout: msg.getMulticastTimeout(),
     unicastTimeout: (f = msg.getUnicastTimeout()) && google_protobuf_duration_pb.Duration.toObject(includeInstance, f),
     state: msg.getState(),
@@ -150,18 +151,22 @@ proto.api.FUOTADeployment.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 8:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setMulticastTimeout(value);
+      msg.setFragAlgo(value);
       break;
     case 9:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMulticastTimeout(value);
+      break;
+    case 10:
       var value = new google_protobuf_duration_pb.Duration;
       reader.readMessage(value,google_protobuf_duration_pb.Duration.deserializeBinaryFromReader);
       msg.setUnicastTimeout(value);
       break;
-    case 10:
+    case 11:
       var value = /** @type {string} */ (reader.readString());
       msg.setState(value);
       break;
-    case 11:
+    case 12:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setNextStepAfter(value);
@@ -253,17 +258,24 @@ proto.api.FUOTADeployment.prototype.serializeBinaryToWriter = function (writer) 
       f
     );
   }
-  f = this.getMulticastTimeout();
+  f = this.getFragAlgo();
   if (f !== 0) {
     writer.writeUint32(
       8,
       f
     );
   }
+  f = this.getMulticastTimeout();
+  if (f !== 0) {
+    writer.writeUint32(
+      9,
+      f
+    );
+  }
   f = this.getUnicastTimeout();
   if (f != null) {
     writer.writeMessage(
-      9,
+      10,
       f,
       google_protobuf_duration_pb.Duration.serializeBinaryToWriter
     );
@@ -271,14 +283,14 @@ proto.api.FUOTADeployment.prototype.serializeBinaryToWriter = function (writer) 
   f = this.getState();
   if (f.length > 0) {
     writer.writeString(
-      10,
+      11,
       f
     );
   }
   f = this.getNextStepAfter();
   if (f != null) {
     writer.writeMessage(
-      11,
+      12,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
@@ -425,33 +437,48 @@ proto.api.FUOTADeployment.prototype.setRedundancy = function(value) {
 
 
 /**
- * optional uint32 multicast_timeout = 8;
+ * optional uint32 frag_algo = 8;
  * @return {number}
  */
-proto.api.FUOTADeployment.prototype.getMulticastTimeout = function() {
+proto.api.FUOTADeployment.prototype.getFragAlgo = function() {
   return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
 };
 
 
 /** @param {number} value  */
-proto.api.FUOTADeployment.prototype.setMulticastTimeout = function(value) {
+proto.api.FUOTADeployment.prototype.setFragAlgo = function(value) {
   jspb.Message.setField(this, 8, value);
 };
 
 
 /**
- * optional google.protobuf.Duration unicast_timeout = 9;
+ * optional uint32 multicast_timeout = 9;
+ * @return {number}
+ */
+proto.api.FUOTADeployment.prototype.getMulticastTimeout = function() {
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
+};
+
+
+/** @param {number} value  */
+proto.api.FUOTADeployment.prototype.setMulticastTimeout = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional google.protobuf.Duration unicast_timeout = 10;
  * @return {proto.google.protobuf.Duration}
  */
 proto.api.FUOTADeployment.prototype.getUnicastTimeout = function() {
   return /** @type{proto.google.protobuf.Duration} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 9));
+    jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 10));
 };
 
 
 /** @param {proto.google.protobuf.Duration|undefined} value  */
 proto.api.FUOTADeployment.prototype.setUnicastTimeout = function(value) {
-  jspb.Message.setWrapperField(this, 9, value);
+  jspb.Message.setWrapperField(this, 10, value);
 };
 
 
@@ -465,38 +492,38 @@ proto.api.FUOTADeployment.prototype.clearUnicastTimeout = function() {
  * @return{!boolean}
  */
 proto.api.FUOTADeployment.prototype.hasUnicastTimeout = function() {
-  return jspb.Message.getField(this, 9) != null;
+  return jspb.Message.getField(this, 10) != null;
 };
 
 
 /**
- * optional string state = 10;
+ * optional string state = 11;
  * @return {string}
  */
 proto.api.FUOTADeployment.prototype.getState = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 10, ""));
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 11, ""));
 };
 
 
 /** @param {string} value  */
 proto.api.FUOTADeployment.prototype.setState = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setField(this, 11, value);
 };
 
 
 /**
- * optional google.protobuf.Timestamp next_step_after = 11;
+ * optional google.protobuf.Timestamp next_step_after = 12;
  * @return {proto.google.protobuf.Timestamp}
  */
 proto.api.FUOTADeployment.prototype.getNextStepAfter = function() {
   return /** @type{proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 11));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 12));
 };
 
 
 /** @param {proto.google.protobuf.Timestamp|undefined} value  */
 proto.api.FUOTADeployment.prototype.setNextStepAfter = function(value) {
-  jspb.Message.setWrapperField(this, 11, value);
+  jspb.Message.setWrapperField(this, 12, value);
 };
 
 
@@ -510,7 +537,7 @@ proto.api.FUOTADeployment.prototype.clearNextStepAfter = function() {
  * @return{!boolean}
  */
 proto.api.FUOTADeployment.prototype.hasNextStepAfter = function() {
-  return jspb.Message.getField(this, 11) != null;
+  return jspb.Message.getField(this, 12) != null;
 };
 
 

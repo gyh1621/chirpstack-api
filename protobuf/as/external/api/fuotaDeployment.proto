@@ -84,24 +84,27 @@ message FUOTADeployment {
     // Redundancy (number of packages).
     uint32 redundancy = 7;
 
+    // Encoding algorithm
+    uint32 frag_algo = 8;
+
     // Multicast time-out.
     // Please refer to the Remote Multicast Setup specification as this field
     // has a different meaning for Class-B and Class-C groups.
-    uint32 multicast_timeout = 8;
+    uint32 multicast_timeout = 9;
 
     // Unicast time-out.
     // Set this to the value in which you at least expect an uplink frame from the
     // device. The FUOTA deployment engine will wait at least for the given time
     // before proceeding with the next steps.
-    google.protobuf.Duration unicast_timeout = 9;
+    google.protobuf.Duration unicast_timeout = 10;
 
     // Deployment state.
     // This value will be automatically set on create.
-    string state = 10;
+    string state = 11;
 
     // Next step after.
     // This value will be automatically set on create.
-    google.protobuf.Timestamp next_step_after = 11;
+    google.protobuf.Timestamp next_step_after = 12;
 }
 
 message FUOTADeploymentListItem {

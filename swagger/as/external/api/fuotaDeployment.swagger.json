@@ -259,6 +259,11 @@
           "format": "int64",
           "description": "Redundancy (number of packages)."
         },
+        "fragAlgo": {
+          "type": "integer",
+          "format": "int64",
+          "title": "Encoding algorithm"
+        },
         "multicastTimeout": {
           "type": "integer",
           "format": "int64",

@@ -31,6 +31,9 @@ export class FUOTADeployment extends jspb.Message {
   getRedundancy(): number;
   setRedundancy(value: number): void;
 
+  getFragAlgo(): number;
+  setFragAlgo(value: number): void;
+
   getMulticastTimeout(): number;
   setMulticastTimeout(value: number): void;
 
@@ -66,6 +69,7 @@ export namespace FUOTADeployment {
     frequency: number,
     payload: Uint8Array | string,
     redundancy: number,
+    fragAlgo: number,
     multicastTimeout: number,
     unicastTimeout?: google_protobuf_duration_pb.Duration.AsObject,
     state: string,
