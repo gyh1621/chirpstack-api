@@ -14,6 +14,9 @@ export class FUOTADeployment extends jspb.Message {
   getName(): string;
   setName(value: string): void;
 
+  getMcGroupId(): string;
+  setMcGroupId(value: string): void;
+
   getGroupType(): as_external_api_multicastGroup_pb.MulticastGroupTypeMap[keyof as_external_api_multicastGroup_pb.MulticastGroupTypeMap];
   setGroupType(value: as_external_api_multicastGroup_pb.MulticastGroupTypeMap[keyof as_external_api_multicastGroup_pb.MulticastGroupTypeMap]): void;
 
@@ -64,6 +67,7 @@ export namespace FUOTADeployment {
   export type AsObject = {
     id: string,
     name: string,
+    mcGroupId: string,
     groupType: as_external_api_multicastGroup_pb.MulticastGroupTypeMap[keyof as_external_api_multicastGroup_pb.MulticastGroupTypeMap],
     dr: number,
     frequency: number,

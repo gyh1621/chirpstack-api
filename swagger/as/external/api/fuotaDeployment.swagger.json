@@ -235,6 +235,10 @@
           "type": "string",
           "description": "Name of the deployment."
         },
+        "mcGroupId": {
+          "type": "string",
+          "title": "Multicast Group ID"
+        },
         "groupType": {
           "$ref": "#/definitions/apiMulticastGroupType",
           "title": "Multicast type.\nCurrently only Class-C is supported!"

@@ -68,43 +68,46 @@ message FUOTADeployment {
     // Name of the deployment.
     string name = 2;
 
+    // Multicast Group ID
+    string mc_group_id = 3;
+
     // Multicast type.
     // Currently only Class-C is supported!
-    MulticastGroupType group_type = 3;
+    MulticastGroupType group_type = 4;
 
     // Data-rate.
-    uint32 dr = 4;
+    uint32 dr = 5;
 
     // Frequency (Hz).
-    uint32 frequency = 5;
+    uint32 frequency = 6;
 
     // Payload.
-    bytes payload = 6;
+    bytes payload = 7;
 
     // Redundancy (number of packages).
-    uint32 redundancy = 7;
+    uint32 redundancy = 8;
 
     // Encoding algorithm
-    uint32 frag_algo = 8;
+    uint32 frag_algo = 9;
 
     // Multicast time-out.
     // Please refer to the Remote Multicast Setup specification as this field
     // has a different meaning for Class-B and Class-C groups.
-    uint32 multicast_timeout = 9;
+    uint32 multicast_timeout = 10;
 
     // Unicast time-out.
     // Set this to the value in which you at least expect an uplink frame from the
     // device. The FUOTA deployment engine will wait at least for the given time
     // before proceeding with the next steps.
-    google.protobuf.Duration unicast_timeout = 10;
+    google.protobuf.Duration unicast_timeout = 11;
 
     // Deployment state.
     // This value will be automatically set on create.
-    string state = 11;
+    string state = 12;
 
     // Next step after.
     // This value will be automatically set on create.
-    google.protobuf.Timestamp next_step_after = 12;
+    google.protobuf.Timestamp next_step_after = 13;
 }
 
 message FUOTADeploymentListItem {

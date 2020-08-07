@@ -75,6 +75,7 @@ proto.api.FUOTADeployment.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: msg.getId(),
     name: msg.getName(),
+    mcGroupId: msg.getMcGroupId(),
     groupType: msg.getGroupType(),
     dr: msg.getDr(),
     frequency: msg.getFrequency(),
@@ -130,43 +131,47 @@ proto.api.FUOTADeployment.deserializeBinaryFromReader = function(msg, reader) {
       msg.setName(value);
       break;
     case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMcGroupId(value);
+      break;
+    case 4:
       var value = /** @type {!proto.api.MulticastGroupType} */ (reader.readEnum());
       msg.setGroupType(value);
       break;
-    case 4:
+    case 5:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setDr(value);
       break;
-    case 5:
+    case 6:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setFrequency(value);
       break;
-    case 6:
+    case 7:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setPayload(value);
       break;
-    case 7:
+    case 8:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setRedundancy(value);
       break;
-    case 8:
+    case 9:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setFragAlgo(value);
       break;
-    case 9:
+    case 10:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setMulticastTimeout(value);
       break;
-    case 10:
+    case 11:
       var value = new google_protobuf_duration_pb.Duration;
       reader.readMessage(value,google_protobuf_duration_pb.Duration.deserializeBinaryFromReader);
       msg.setUnicastTimeout(value);
       break;
-    case 11:
+    case 12:
       var value = /** @type {string} */ (reader.readString());
       msg.setState(value);
       break;
-    case 12:
+    case 13:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setNextStepAfter(value);
@@ -223,59 +228,66 @@ proto.api.FUOTADeployment.prototype.serializeBinaryToWriter = function (writer) 
       f
     );
   }
+  f = this.getMcGroupId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
   f = this.getGroupType();
   if (f !== 0.0) {
     writer.writeEnum(
-      3,
+      4,
       f
     );
   }
   f = this.getDr();
   if (f !== 0) {
     writer.writeUint32(
-      4,
+      5,
       f
     );
   }
   f = this.getFrequency();
   if (f !== 0) {
     writer.writeUint32(
-      5,
+      6,
       f
     );
   }
   f = this.getPayload_asU8();
   if (f.length > 0) {
     writer.writeBytes(
-      6,
+      7,
       f
     );
   }
   f = this.getRedundancy();
   if (f !== 0) {
     writer.writeUint32(
-      7,
+      8,
       f
     );
   }
   f = this.getFragAlgo();
   if (f !== 0) {
     writer.writeUint32(
-      8,
+      9,
       f
     );
   }
   f = this.getMulticastTimeout();
   if (f !== 0) {
     writer.writeUint32(
-      9,
+      10,
       f
     );
   }
   f = this.getUnicastTimeout();
   if (f != null) {
     writer.writeMessage(
-      10,
+      11,
       f,
       google_protobuf_duration_pb.Duration.serializeBinaryToWriter
     );
@@ -283,14 +295,14 @@ proto.api.FUOTADeployment.prototype.serializeBinaryToWriter = function (writer) 
   f = this.getState();
   if (f.length > 0) {
     writer.writeString(
-      11,
+      12,
       f
     );
   }
   f = this.getNextStepAfter();
   if (f != null) {
     writer.writeMessage(
-      12,
+      13,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
@@ -338,61 +350,76 @@ proto.api.FUOTADeployment.prototype.setName = function(value) {
 
 
 /**
- * optional MulticastGroupType group_type = 3;
- * @return {!proto.api.MulticastGroupType}
+ * optional string mc_group_id = 3;
+ * @return {string}
  */
-proto.api.FUOTADeployment.prototype.getGroupType = function() {
-  return /** @type {!proto.api.MulticastGroupType} */ (jspb.Message.getFieldProto3(this, 3, 0));
+proto.api.FUOTADeployment.prototype.getMcGroupId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
 };
 
 
-/** @param {!proto.api.MulticastGroupType} value  */
-proto.api.FUOTADeployment.prototype.setGroupType = function(value) {
+/** @param {string} value  */
+proto.api.FUOTADeployment.prototype.setMcGroupId = function(value) {
   jspb.Message.setField(this, 3, value);
 };
 
 
 /**
- * optional uint32 dr = 4;
- * @return {number}
+ * optional MulticastGroupType group_type = 4;
+ * @return {!proto.api.MulticastGroupType}
  */
-proto.api.FUOTADeployment.prototype.getDr = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+proto.api.FUOTADeployment.prototype.getGroupType = function() {
+  return /** @type {!proto.api.MulticastGroupType} */ (jspb.Message.getFieldProto3(this, 4, 0));
 };
 
 
-/** @param {number} value  */
-proto.api.FUOTADeployment.prototype.setDr = function(value) {
+/** @param {!proto.api.MulticastGroupType} value  */
+proto.api.FUOTADeployment.prototype.setGroupType = function(value) {
   jspb.Message.setField(this, 4, value);
 };
 
 
 /**
- * optional uint32 frequency = 5;
+ * optional uint32 dr = 5;
  * @return {number}
  */
-proto.api.FUOTADeployment.prototype.getFrequency = function() {
+proto.api.FUOTADeployment.prototype.getDr = function() {
   return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
 };
 
 
 /** @param {number} value  */
-proto.api.FUOTADeployment.prototype.setFrequency = function(value) {
+proto.api.FUOTADeployment.prototype.setDr = function(value) {
   jspb.Message.setField(this, 5, value);
 };
 
 
 /**
- * optional bytes payload = 6;
- * @return {!(string|Uint8Array)}
+ * optional uint32 frequency = 6;
+ * @return {number}
  */
-proto.api.FUOTADeployment.prototype.getPayload = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 6, ""));
+proto.api.FUOTADeployment.prototype.getFrequency = function() {
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 6, 0));
+};
+
+
+/** @param {number} value  */
+proto.api.FUOTADeployment.prototype.setFrequency = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 
 /**
- * optional bytes payload = 6;
+ * optional bytes payload = 7;
+ * @return {!(string|Uint8Array)}
+ */
+proto.api.FUOTADeployment.prototype.getPayload = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldProto3(this, 7, ""));
+};
+
+
+/**
+ * optional bytes payload = 7;
  * This is a type-conversion wrapper around `getPayload()`
  * @return {string}
  */
@@ -403,7 +430,7 @@ proto.api.FUOTADeployment.prototype.getPayload_asB64 = function() {
 
 
 /**
- * optional bytes payload = 6;
+ * optional bytes payload = 7;
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
  * This is a type-conversion wrapper around `getPayload()`
@@ -417,68 +444,68 @@ proto.api.FUOTADeployment.prototype.getPayload_asU8 = function() {
 
 /** @param {!(string|Uint8Array)} value  */
 proto.api.FUOTADeployment.prototype.setPayload = function(value) {
-  jspb.Message.setField(this, 6, value);
-};
-
-
-/**
- * optional uint32 redundancy = 7;
- * @return {number}
- */
-proto.api.FUOTADeployment.prototype.getRedundancy = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 7, 0));
-};
-
-
-/** @param {number} value  */
-proto.api.FUOTADeployment.prototype.setRedundancy = function(value) {
   jspb.Message.setField(this, 7, value);
 };
 
 
 /**
- * optional uint32 frag_algo = 8;
+ * optional uint32 redundancy = 8;
  * @return {number}
  */
-proto.api.FUOTADeployment.prototype.getFragAlgo = function() {
+proto.api.FUOTADeployment.prototype.getRedundancy = function() {
   return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
 };
 
 
 /** @param {number} value  */
-proto.api.FUOTADeployment.prototype.setFragAlgo = function(value) {
+proto.api.FUOTADeployment.prototype.setRedundancy = function(value) {
   jspb.Message.setField(this, 8, value);
 };
 
 
 /**
- * optional uint32 multicast_timeout = 9;
+ * optional uint32 frag_algo = 9;
  * @return {number}
  */
-proto.api.FUOTADeployment.prototype.getMulticastTimeout = function() {
+proto.api.FUOTADeployment.prototype.getFragAlgo = function() {
   return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
 };
 
 
 /** @param {number} value  */
-proto.api.FUOTADeployment.prototype.setMulticastTimeout = function(value) {
+proto.api.FUOTADeployment.prototype.setFragAlgo = function(value) {
   jspb.Message.setField(this, 9, value);
 };
 
 
 /**
- * optional google.protobuf.Duration unicast_timeout = 10;
+ * optional uint32 multicast_timeout = 10;
+ * @return {number}
+ */
+proto.api.FUOTADeployment.prototype.getMulticastTimeout = function() {
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 10, 0));
+};
+
+
+/** @param {number} value  */
+proto.api.FUOTADeployment.prototype.setMulticastTimeout = function(value) {
+  jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional google.protobuf.Duration unicast_timeout = 11;
  * @return {proto.google.protobuf.Duration}
  */
 proto.api.FUOTADeployment.prototype.getUnicastTimeout = function() {
   return /** @type{proto.google.protobuf.Duration} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 10));
+    jspb.Message.getWrapperField(this, google_protobuf_duration_pb.Duration, 11));
 };
 
 
 /** @param {proto.google.protobuf.Duration|undefined} value  */
 proto.api.FUOTADeployment.prototype.setUnicastTimeout = function(value) {
-  jspb.Message.setWrapperField(this, 10, value);
+  jspb.Message.setWrapperField(this, 11, value);
 };
 
 
@@ -492,38 +519,38 @@ proto.api.FUOTADeployment.prototype.clearUnicastTimeout = function() {
  * @return{!boolean}
  */
 proto.api.FUOTADeployment.prototype.hasUnicastTimeout = function() {
-  return jspb.Message.getField(this, 10) != null;
+  return jspb.Message.getField(this, 11) != null;
 };
 
 
 /**
- * optional string state = 11;
+ * optional string state = 12;
  * @return {string}
  */
 proto.api.FUOTADeployment.prototype.getState = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 11, ""));
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 12, ""));
 };
 
 
 /** @param {string} value  */
 proto.api.FUOTADeployment.prototype.setState = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setField(this, 12, value);
 };
 
 
 /**
- * optional google.protobuf.Timestamp next_step_after = 12;
+ * optional google.protobuf.Timestamp next_step_after = 13;
  * @return {proto.google.protobuf.Timestamp}
  */
 proto.api.FUOTADeployment.prototype.getNextStepAfter = function() {
   return /** @type{proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 12));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 13));
 };
 
 
 /** @param {proto.google.protobuf.Timestamp|undefined} value  */
 proto.api.FUOTADeployment.prototype.setNextStepAfter = function(value) {
-  jspb.Message.setWrapperField(this, 12, value);
+  jspb.Message.setWrapperField(this, 13, value);
 };
 
 
@@ -537,7 +564,7 @@ proto.api.FUOTADeployment.prototype.clearNextStepAfter = function() {
  * @return{!boolean}
  */
 proto.api.FUOTADeployment.prototype.hasNextStepAfter = function() {
-  return jspb.Message.getField(this, 12) != null;
+  return jspb.Message.getField(this, 13) != null;
 };
 
 
