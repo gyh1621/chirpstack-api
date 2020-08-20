@@ -46,6 +46,11 @@ class MulticastGroupServiceStub(object):
                 request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.AddDeviceToMulticastGroupRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.AddApplicationDevice = channel.unary_unary(
+                '/api.MulticastGroupService/AddApplicationDevice',
+                request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.AddApplicationDeviceToMulticastGroupRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
         self.RemoveDevice = channel.unary_unary(
                 '/api.MulticastGroupService/RemoveDevice',
                 request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.RemoveDeviceFromMulticastGroupRequest.SerializeToString,
@@ -114,6 +119,13 @@ class MulticastGroupServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddApplicationDevice(self, request, context):
+        """AddApplicationDevice adds the given device to the multicast-group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def RemoveDevice(self, request, context):
         """RemoveDevice removes the given device from the multicast-group.
         """
@@ -173,6 +185,11 @@ def add_MulticastGroupServiceServicer_to_server(servicer, server):
             'AddDevice': grpc.unary_unary_rpc_method_handler(
                     servicer.AddDevice,
                     request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.AddDeviceToMulticastGroupRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'AddApplicationDevice': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddApplicationDevice,
+                    request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.AddApplicationDeviceToMulticastGroupRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'RemoveDevice': grpc.unary_unary_rpc_method_handler(
@@ -304,6 +321,23 @@ class MulticastGroupService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.MulticastGroupService/AddDevice',
             chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.AddDeviceToMulticastGroupRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddApplicationDevice(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.MulticastGroupService/AddApplicationDevice',
+            chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.AddApplicationDeviceToMulticastGroupRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

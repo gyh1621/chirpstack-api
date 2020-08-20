@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z7github.com/gyh1621/chirpstack-api/go/v3/as/external/api',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6chirpstack-api/as_pb/external/api/multicastGroup.proto\x12\x03\x61pi\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"\xde\x01\n\x0eMulticastGroup\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07mc_addr\x18\x03 \x01(\t\x12\r\n\x05\x66_cnt\x18\x04 \x01(\r\x12+\n\ngroup_type\x18\x05 \x01(\x0e\x32\x17.api.MulticastGroupType\x12\n\n\x02\x64r\x18\x06 \x01(\r\x12\x11\n\tfrequency\x18\x07 \x01(\r\x12\x18\n\x10ping_slot_period\x18\x08 \x01(\r\x12,\n\x12service_profile_id\x18\t \x01(\tR\x10serviceProfileID\"~\n\x16MulticastGroupListItem\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12,\n\x12service_profile_id\x18\x03 \x01(\tR\x10serviceProfileID\x12\x1c\n\x14service_profile_name\x18\x04 \x01(\t\"K\n\x1b\x43reateMulticastGroupRequest\x12,\n\x0fmulticast_group\x18\x01 \x01(\x0b\x32\x13.api.MulticastGroup\"*\n\x1c\x43reateMulticastGroupResponse\x12\n\n\x02id\x18\x01 \x01(\t\"&\n\x18GetMulticastGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\xa9\x01\n\x19GetMulticastGroupResponse\x12,\n\x0fmulticast_group\x18\x01 \x01(\x0b\x32\x13.api.MulticastGroup\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"K\n\x1bUpdateMulticastGroupRequest\x12,\n\x0fmulticast_group\x18\x01 \x01(\x0b\x32\x13.api.MulticastGroup\")\n\x1b\x44\x65leteMulticastGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\"k\n AddDeviceToMulticastGroupRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12\x19\n\x08\x64\x65v_euis\x18\x02 \x03(\tR\x07\x64\x65vEUIS\"n\n%RemoveDeviceFromMulticastGroupRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12\x17\n\x07\x64\x65v_eui\x18\x02 \x01(\tR\x06\x64\x65vEUI\"\xba\x01\n\x19ListMulticastGroupRequest\x12\r\n\x05limit\x18\x01 \x01(\x03\x12\x0e\n\x06offset\x18\x02 \x01(\x03\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationID\x12\x17\n\x07\x64\x65v_eui\x18\x04 \x01(\tR\x06\x64\x65vEUI\x12,\n\x12service_profile_id\x18\x05 \x01(\tR\x10serviceProfileID\x12\x0e\n\x06search\x18\x06 \x01(\t\"^\n\x1aListMulticastGroupResponse\x12\x13\n\x0btotal_count\x18\x01 \x01(\x03\x12+\n\x06result\x18\x02 \x03(\x0b\x32\x1b.api.MulticastGroupListItem\"o\n\x12MulticastQueueItem\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12\r\n\x05\x66_cnt\x18\x02 \x01(\r\x12\x0e\n\x06\x66_port\x18\x03 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\x0c\"Y\n EnqueueMulticastQueueItemRequest\x12\x35\n\x14multicast_queue_item\x18\x01 \x01(\x0b\x32\x17.api.MulticastQueueItem\"2\n!EnqueueMulticastQueueItemResponse\x12\r\n\x05\x66_cnt\x18\x01 \x01(\r\"T\n$FlushMulticastGroupQueueItemsRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\"S\n#ListMulticastGroupQueueItemsRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\"^\n$ListMulticastGroupQueueItemsResponse\x12\x36\n\x15multicast_queue_items\x18\x01 \x03(\x0b\x32\x17.api.MulticastQueueItem*.\n\x12MulticastGroupType\x12\x0b\n\x07\x43LASS_C\x10\x00\x12\x0b\n\x07\x43LASS_B\x10\x01\x32\xba\n\n\x15MulticastGroupService\x12o\n\x06\x43reate\x12 .api.CreateMulticastGroupRequest\x1a!.api.CreateMulticastGroupResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/multicast-groups:\x01*\x12h\n\x03Get\x12\x1d.api.GetMulticastGroupRequest\x1a\x1e.api.GetMulticastGroupResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/api/multicast-groups/{id}\x12y\n\x06Update\x12 .api.UpdateMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"5\x82\xd3\xe4\x93\x02/\x1a*/api/multicast-groups/{multicast_group.id}:\x01*\x12\x66\n\x06\x44\x65lete\x12 .api.DeleteMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"\"\x82\xd3\xe4\x93\x02\x1c*\x1a/api/multicast-groups/{id}\x12\x66\n\x04List\x12\x1e.api.ListMulticastGroupRequest\x1a\x1f.api.ListMulticastGroupResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/api/multicast-groups\x12\x89\x01\n\tAddDevice\x12%.api.AddDeviceToMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"=\x82\xd3\xe4\x93\x02\x37\"2/api/multicast-groups/{multicast_group_id}/devices:\x01*\x12\x98\x01\n\x0cRemoveDevice\x12*.api.RemoveDeviceFromMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"D\x82\xd3\xe4\x93\x02>*</api/multicast-groups/{multicast_group_id}/devices/{dev_eui}\x12\xaa\x01\n\x07\x45nqueue\x12%.api.EnqueueMulticastQueueItemRequest\x1a&.api.EnqueueMulticastQueueItemResponse\"P\x82\xd3\xe4\x93\x02J\"E/api/multicast-groups/{multicast_queue_item.multicast_group_id}/queue:\x01*\x12\x89\x01\n\nFlushQueue\x12).api.FlushMulticastGroupQueueItemsRequest\x1a\x16.google.protobuf.Empty\"8\x82\xd3\xe4\x93\x02\x32*0/api/multicast-groups/{multicast_group_id}/queue\x12\x9a\x01\n\tListQueue\x12(.api.ListMulticastGroupQueueItemsRequest\x1a).api.ListMulticastGroupQueueItemsResponse\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/api/multicast-groups/{multicast_group_id}/queueB9Z7github.com/gyh1621/chirpstack-api/go/v3/as/external/apib\x06proto3'
+  serialized_pb=b'\n6chirpstack-api/as_pb/external/api/multicastGroup.proto\x12\x03\x61pi\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"\xde\x01\n\x0eMulticastGroup\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07mc_addr\x18\x03 \x01(\t\x12\r\n\x05\x66_cnt\x18\x04 \x01(\r\x12+\n\ngroup_type\x18\x05 \x01(\x0e\x32\x17.api.MulticastGroupType\x12\n\n\x02\x64r\x18\x06 \x01(\r\x12\x11\n\tfrequency\x18\x07 \x01(\r\x12\x18\n\x10ping_slot_period\x18\x08 \x01(\r\x12,\n\x12service_profile_id\x18\t \x01(\tR\x10serviceProfileID\"~\n\x16MulticastGroupListItem\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12,\n\x12service_profile_id\x18\x03 \x01(\tR\x10serviceProfileID\x12\x1c\n\x14service_profile_name\x18\x04 \x01(\t\"K\n\x1b\x43reateMulticastGroupRequest\x12,\n\x0fmulticast_group\x18\x01 \x01(\x0b\x32\x13.api.MulticastGroup\"*\n\x1c\x43reateMulticastGroupResponse\x12\n\n\x02id\x18\x01 \x01(\t\"&\n\x18GetMulticastGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\xa9\x01\n\x19GetMulticastGroupResponse\x12,\n\x0fmulticast_group\x18\x01 \x01(\x0b\x32\x13.api.MulticastGroup\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"K\n\x1bUpdateMulticastGroupRequest\x12,\n\x0fmulticast_group\x18\x01 \x01(\x0b\x32\x13.api.MulticastGroup\")\n\x1b\x44\x65leteMulticastGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\"k\n AddDeviceToMulticastGroupRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12\x19\n\x08\x64\x65v_euis\x18\x02 \x03(\tR\x07\x64\x65vEUIS\"\xa4\x01\n+AddApplicationDeviceToMulticastGroupRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12%\n\x0e\x61pplication_id\x18\x02 \x01(\x03R\rapplicationID\x12 \n\x08\x64\x65v_euis\x18\x03 \x03(\tR\x0e\x65xcludeDevEUIS\"n\n%RemoveDeviceFromMulticastGroupRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12\x17\n\x07\x64\x65v_eui\x18\x02 \x01(\tR\x06\x64\x65vEUI\"\xba\x01\n\x19ListMulticastGroupRequest\x12\r\n\x05limit\x18\x01 \x01(\x03\x12\x0e\n\x06offset\x18\x02 \x01(\x03\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationID\x12\x17\n\x07\x64\x65v_eui\x18\x04 \x01(\tR\x06\x64\x65vEUI\x12,\n\x12service_profile_id\x18\x05 \x01(\tR\x10serviceProfileID\x12\x0e\n\x06search\x18\x06 \x01(\t\"^\n\x1aListMulticastGroupResponse\x12\x13\n\x0btotal_count\x18\x01 \x01(\x03\x12+\n\x06result\x18\x02 \x03(\x0b\x32\x1b.api.MulticastGroupListItem\"o\n\x12MulticastQueueItem\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12\r\n\x05\x66_cnt\x18\x02 \x01(\r\x12\x0e\n\x06\x66_port\x18\x03 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\x0c\"Y\n EnqueueMulticastQueueItemRequest\x12\x35\n\x14multicast_queue_item\x18\x01 \x01(\x0b\x32\x17.api.MulticastQueueItem\"2\n!EnqueueMulticastQueueItemResponse\x12\r\n\x05\x66_cnt\x18\x01 \x01(\r\"T\n$FlushMulticastGroupQueueItemsRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\"S\n#ListMulticastGroupQueueItemsRequest\x12,\n\x12multicast_group_id\x18\x01 \x01(\tR\x10multicastGroupID\"^\n$ListMulticastGroupQueueItemsResponse\x12\x36\n\x15multicast_queue_items\x18\x01 \x03(\x0b\x32\x17.api.MulticastQueueItem*.\n\x12MulticastGroupType\x12\x0b\n\x07\x43LASS_C\x10\x00\x12\x0b\n\x07\x43LASS_B\x10\x01\x32\xe0\x0b\n\x15MulticastGroupService\x12o\n\x06\x43reate\x12 .api.CreateMulticastGroupRequest\x1a!.api.CreateMulticastGroupResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/multicast-groups:\x01*\x12h\n\x03Get\x12\x1d.api.GetMulticastGroupRequest\x1a\x1e.api.GetMulticastGroupResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/api/multicast-groups/{id}\x12y\n\x06Update\x12 .api.UpdateMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"5\x82\xd3\xe4\x93\x02/\x1a*/api/multicast-groups/{multicast_group.id}:\x01*\x12\x66\n\x06\x44\x65lete\x12 .api.DeleteMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"\"\x82\xd3\xe4\x93\x02\x1c*\x1a/api/multicast-groups/{id}\x12\x66\n\x04List\x12\x1e.api.ListMulticastGroupRequest\x1a\x1f.api.ListMulticastGroupResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/api/multicast-groups\x12\x89\x01\n\tAddDevice\x12%.api.AddDeviceToMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"=\x82\xd3\xe4\x93\x02\x37\"2/api/multicast-groups/{multicast_group_id}/devices:\x01*\x12\xa3\x01\n\x14\x41\x64\x64\x41pplicationDevice\x12\x30.api.AddApplicationDeviceToMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"A\x82\xd3\xe4\x93\x02;\"6/api/multicast-groups/{multicast_group_id}/application:\x01*\x12\x98\x01\n\x0cRemoveDevice\x12*.api.RemoveDeviceFromMulticastGroupRequest\x1a\x16.google.protobuf.Empty\"D\x82\xd3\xe4\x93\x02>*</api/multicast-groups/{multicast_group_id}/devices/{dev_eui}\x12\xaa\x01\n\x07\x45nqueue\x12%.api.EnqueueMulticastQueueItemRequest\x1a&.api.EnqueueMulticastQueueItemResponse\"P\x82\xd3\xe4\x93\x02J\"E/api/multicast-groups/{multicast_queue_item.multicast_group_id}/queue:\x01*\x12\x89\x01\n\nFlushQueue\x12).api.FlushMulticastGroupQueueItemsRequest\x1a\x16.google.protobuf.Empty\"8\x82\xd3\xe4\x93\x02\x32*0/api/multicast-groups/{multicast_group_id}/queue\x12\x9a\x01\n\tListQueue\x12(.api.ListMulticastGroupQueueItemsRequest\x1a).api.ListMulticastGroupQueueItemsResponse\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/api/multicast-groups/{multicast_group_id}/queueB9Z7github.com/gyh1621/chirpstack-api/go/v3/as/external/apib\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -47,8 +47,8 @@ _MULTICASTGROUPTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1990,
-  serialized_end=2036,
+  serialized_start=2157,
+  serialized_end=2203,
 )
 _sym_db.RegisterEnumDescriptor(_MULTICASTGROUPTYPE)
 
@@ -444,6 +444,52 @@ _ADDDEVICETOMULTICASTGROUPREQUEST = _descriptor.Descriptor(
 )
 
 
+_ADDAPPLICATIONDEVICETOMULTICASTGROUPREQUEST = _descriptor.Descriptor(
+  name='AddApplicationDeviceToMulticastGroupRequest',
+  full_name='api.AddApplicationDeviceToMulticastGroupRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='multicast_group_id', full_name='api.AddApplicationDeviceToMulticastGroupRequest.multicast_group_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='multicastGroupID', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='application_id', full_name='api.AddApplicationDeviceToMulticastGroupRequest.application_id', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='applicationID', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dev_euis', full_name='api.AddApplicationDeviceToMulticastGroupRequest.dev_euis', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='excludeDevEUIS', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1071,
+  serialized_end=1235,
+)
+
+
 _REMOVEDEVICEFROMMULTICASTGROUPREQUEST = _descriptor.Descriptor(
   name='RemoveDeviceFromMulticastGroupRequest',
   full_name='api.RemoveDeviceFromMulticastGroupRequest',
@@ -478,8 +524,8 @@ _REMOVEDEVICEFROMMULTICASTGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1070,
-  serialized_end=1180,
+  serialized_start=1237,
+  serialized_end=1347,
 )
 
 
@@ -545,8 +591,8 @@ _LISTMULTICASTGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1183,
-  serialized_end=1369,
+  serialized_start=1350,
+  serialized_end=1536,
 )
 
 
@@ -584,8 +630,8 @@ _LISTMULTICASTGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1371,
-  serialized_end=1465,
+  serialized_start=1538,
+  serialized_end=1632,
 )
 
 
@@ -637,8 +683,8 @@ _MULTICASTQUEUEITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1467,
-  serialized_end=1578,
+  serialized_start=1634,
+  serialized_end=1745,
 )
 
 
@@ -669,8 +715,8 @@ _ENQUEUEMULTICASTQUEUEITEMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1580,
-  serialized_end=1669,
+  serialized_start=1747,
+  serialized_end=1836,
 )
 
 
@@ -701,8 +747,8 @@ _ENQUEUEMULTICASTQUEUEITEMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1671,
-  serialized_end=1721,
+  serialized_start=1838,
+  serialized_end=1888,
 )
 
 
@@ -733,8 +779,8 @@ _FLUSHMULTICASTGROUPQUEUEITEMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1723,
-  serialized_end=1807,
+  serialized_start=1890,
+  serialized_end=1974,
 )
 
 
@@ -765,8 +811,8 @@ _LISTMULTICASTGROUPQUEUEITEMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1809,
-  serialized_end=1892,
+  serialized_start=1976,
+  serialized_end=2059,
 )
 
 
@@ -797,8 +843,8 @@ _LISTMULTICASTGROUPQUEUEITEMSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1894,
-  serialized_end=1988,
+  serialized_start=2061,
+  serialized_end=2155,
 )
 
 _MULTICASTGROUP.fields_by_name['group_type'].enum_type = _MULTICASTGROUPTYPE
@@ -819,6 +865,7 @@ DESCRIPTOR.message_types_by_name['GetMulticastGroupResponse'] = _GETMULTICASTGRO
 DESCRIPTOR.message_types_by_name['UpdateMulticastGroupRequest'] = _UPDATEMULTICASTGROUPREQUEST
 DESCRIPTOR.message_types_by_name['DeleteMulticastGroupRequest'] = _DELETEMULTICASTGROUPREQUEST
 DESCRIPTOR.message_types_by_name['AddDeviceToMulticastGroupRequest'] = _ADDDEVICETOMULTICASTGROUPREQUEST
+DESCRIPTOR.message_types_by_name['AddApplicationDeviceToMulticastGroupRequest'] = _ADDAPPLICATIONDEVICETOMULTICASTGROUPREQUEST
 DESCRIPTOR.message_types_by_name['RemoveDeviceFromMulticastGroupRequest'] = _REMOVEDEVICEFROMMULTICASTGROUPREQUEST
 DESCRIPTOR.message_types_by_name['ListMulticastGroupRequest'] = _LISTMULTICASTGROUPREQUEST
 DESCRIPTOR.message_types_by_name['ListMulticastGroupResponse'] = _LISTMULTICASTGROUPRESPONSE
@@ -894,6 +941,13 @@ AddDeviceToMulticastGroupRequest = _reflection.GeneratedProtocolMessageType('Add
   })
 _sym_db.RegisterMessage(AddDeviceToMulticastGroupRequest)
 
+AddApplicationDeviceToMulticastGroupRequest = _reflection.GeneratedProtocolMessageType('AddApplicationDeviceToMulticastGroupRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ADDAPPLICATIONDEVICETOMULTICASTGROUPREQUEST,
+  '__module__' : 'chirpstack_api.as_pb.external.api.multicastGroup_pb2'
+  # @@protoc_insertion_point(class_scope:api.AddApplicationDeviceToMulticastGroupRequest)
+  })
+_sym_db.RegisterMessage(AddApplicationDeviceToMulticastGroupRequest)
+
 RemoveDeviceFromMulticastGroupRequest = _reflection.GeneratedProtocolMessageType('RemoveDeviceFromMulticastGroupRequest', (_message.Message,), {
   'DESCRIPTOR' : _REMOVEDEVICEFROMMULTICASTGROUPREQUEST,
   '__module__' : 'chirpstack_api.as_pb.external.api.multicastGroup_pb2'
@@ -967,8 +1021,8 @@ _MULTICASTGROUPSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2039,
-  serialized_end=3377,
+  serialized_start=2206,
+  serialized_end=3710,
   methods=[
   _descriptor.MethodDescriptor(
     name='Create',
@@ -1031,9 +1085,19 @@ _MULTICASTGROUPSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='AddApplicationDevice',
+    full_name='api.MulticastGroupService.AddApplicationDevice',
+    index=6,
+    containing_service=None,
+    input_type=_ADDAPPLICATIONDEVICETOMULTICASTGROUPREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\002;\"6/api/multicast-groups/{multicast_group_id}/application:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='RemoveDevice',
     full_name='api.MulticastGroupService.RemoveDevice',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_REMOVEDEVICEFROMMULTICASTGROUPREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -1043,7 +1107,7 @@ _MULTICASTGROUPSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Enqueue',
     full_name='api.MulticastGroupService.Enqueue',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=_ENQUEUEMULTICASTQUEUEITEMREQUEST,
     output_type=_ENQUEUEMULTICASTQUEUEITEMRESPONSE,
@@ -1053,7 +1117,7 @@ _MULTICASTGROUPSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='FlushQueue',
     full_name='api.MulticastGroupService.FlushQueue',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=_FLUSHMULTICASTGROUPQUEUEITEMSREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -1063,7 +1127,7 @@ _MULTICASTGROUPSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListQueue',
     full_name='api.MulticastGroupService.ListQueue',
-    index=9,
+    index=10,
     containing_service=None,
     input_type=_LISTMULTICASTGROUPQUEUEITEMSREQUEST,
     output_type=_LISTMULTICASTGROUPQUEUEITEMSRESPONSE,

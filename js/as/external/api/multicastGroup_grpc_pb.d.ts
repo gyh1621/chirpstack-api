@@ -14,6 +14,7 @@ interface IMulticastGroupServiceService extends grpc.ServiceDefinition<grpc.Unty
   delete: grpc.MethodDefinition<as_external_api_multicastGroup_pb.DeleteMulticastGroupRequest, google_protobuf_empty_pb.Empty>;
   list: grpc.MethodDefinition<as_external_api_multicastGroup_pb.ListMulticastGroupRequest, as_external_api_multicastGroup_pb.ListMulticastGroupResponse>;
   addDevice: grpc.MethodDefinition<as_external_api_multicastGroup_pb.AddDeviceToMulticastGroupRequest, google_protobuf_empty_pb.Empty>;
+  addApplicationDevice: grpc.MethodDefinition<as_external_api_multicastGroup_pb.AddApplicationDeviceToMulticastGroupRequest, google_protobuf_empty_pb.Empty>;
   removeDevice: grpc.MethodDefinition<as_external_api_multicastGroup_pb.RemoveDeviceFromMulticastGroupRequest, google_protobuf_empty_pb.Empty>;
   enqueue: grpc.MethodDefinition<as_external_api_multicastGroup_pb.EnqueueMulticastQueueItemRequest, as_external_api_multicastGroup_pb.EnqueueMulticastQueueItemResponse>;
   flushQueue: grpc.MethodDefinition<as_external_api_multicastGroup_pb.FlushMulticastGroupQueueItemsRequest, google_protobuf_empty_pb.Empty>;
@@ -42,6 +43,9 @@ export class MulticastGroupServiceClient extends grpc.Client {
   addDevice(argument: as_external_api_multicastGroup_pb.AddDeviceToMulticastGroupRequest, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   addDevice(argument: as_external_api_multicastGroup_pb.AddDeviceToMulticastGroupRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   addDevice(argument: as_external_api_multicastGroup_pb.AddDeviceToMulticastGroupRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  addApplicationDevice(argument: as_external_api_multicastGroup_pb.AddApplicationDeviceToMulticastGroupRequest, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  addApplicationDevice(argument: as_external_api_multicastGroup_pb.AddApplicationDeviceToMulticastGroupRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  addApplicationDevice(argument: as_external_api_multicastGroup_pb.AddApplicationDeviceToMulticastGroupRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   removeDevice(argument: as_external_api_multicastGroup_pb.RemoveDeviceFromMulticastGroupRequest, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   removeDevice(argument: as_external_api_multicastGroup_pb.RemoveDeviceFromMulticastGroupRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   removeDevice(argument: as_external_api_multicastGroup_pb.RemoveDeviceFromMulticastGroupRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;

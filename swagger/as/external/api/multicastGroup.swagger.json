@@ -188,6 +188,40 @@
         ]
       }
     },
+    "/api/multicast-groups/{multicast_group_id}/application": {
+      "post": {
+        "summary": "AddApplicationDevice adds the given device to the multicast-group.",
+        "operationId": "AddApplicationDevice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "multicast_group_id",
+            "description": "Multicast-group ID (string formatted UUID).",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiAddApplicationDeviceToMulticastGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "MulticastGroupService"
+        ]
+      }
+    },
     "/api/multicast-groups/{multicast_group_id}/devices": {
       "post": {
         "summary": "AddDevice adds the given device to the multicast-group.",
@@ -341,6 +375,27 @@
     }
   },
   "definitions": {
+    "apiAddApplicationDeviceToMulticastGroupRequest": {
+      "type": "object",
+      "properties": {
+        "multicastGroupID": {
+          "type": "string",
+          "description": "Multicast-group ID (string formatted UUID)."
+        },
+        "applicationID": {
+          "type": "string",
+          "format": "int64",
+          "title": "Application ID"
+        },
+        "excludeDevEUIS": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Device EUI (HEX encoded string) to be exclude"
+        }
+      }
+    },
     "apiAddDeviceToMulticastGroupRequest": {
       "type": "object",
       "properties": {

@@ -56,6 +56,14 @@ service MulticastGroupService {
         };
     }
 
+    // AddApplicationDevice adds the given device to the multicast-group.
+    rpc AddApplicationDevice(AddApplicationDeviceToMulticastGroupRequest) returns (google.protobuf.Empty) {
+        option(google.api.http) = {
+            post: "/api/multicast-groups/{multicast_group_id}/application"
+            body: "*"
+        };
+    }
+
     // RemoveDevice removes the given device from the multicast-group.
     rpc RemoveDevice(RemoveDeviceFromMulticastGroupRequest) returns (google.protobuf.Empty) {
         option(google.api.http) = {
@@ -184,6 +192,17 @@ message AddDeviceToMulticastGroupRequest {
     // Note that the device must be under the same service-profile as the
     // multicast-group.
     repeated string dev_euis = 2 [json_name="devEUIS"];
+}
+
+message AddApplicationDeviceToMulticastGroupRequest {
+    // Multicast-group ID (string formatted UUID).
+    string multicast_group_id = 1 [json_name = "multicastGroupID"];
+
+    // Application ID
+    int64 application_id = 2 [json_name = "applicationID"];
+
+    // Device EUI (HEX encoded string) to be exclude
+    repeated string dev_euis = 3 [json_name="excludeDevEUIS"];
 }
 
 message RemoveDeviceFromMulticastGroupRequest {

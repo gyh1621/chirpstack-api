@@ -7,6 +7,17 @@ var google_api_annotations_pb = require('../../../google/api/annotations_pb.js')
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 
+function serialize_api_AddApplicationDeviceToMulticastGroupRequest(arg) {
+  if (!(arg instanceof as_external_api_multicastGroup_pb.AddApplicationDeviceToMulticastGroupRequest)) {
+    throw new Error('Expected argument of type api.AddApplicationDeviceToMulticastGroupRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_AddApplicationDeviceToMulticastGroupRequest(buffer_arg) {
+  return as_external_api_multicastGroup_pb.AddApplicationDeviceToMulticastGroupRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_api_AddDeviceToMulticastGroupRequest(arg) {
   if (!(arg instanceof as_external_api_multicastGroup_pb.AddDeviceToMulticastGroupRequest)) {
     throw new Error('Expected argument of type api.AddDeviceToMulticastGroupRequest');
@@ -255,6 +266,18 @@ var MulticastGroupServiceService = exports.MulticastGroupServiceService = {
     responseType: google_protobuf_empty_pb.Empty,
     requestSerialize: serialize_api_AddDeviceToMulticastGroupRequest,
     requestDeserialize: deserialize_api_AddDeviceToMulticastGroupRequest,
+    responseSerialize: serialize_google_protobuf_Empty,
+    responseDeserialize: deserialize_google_protobuf_Empty,
+  },
+  // AddApplicationDevice adds the given device to the multicast-group.
+  addApplicationDevice: {
+    path: '/api.MulticastGroupService/AddApplicationDevice',
+    requestStream: false,
+    responseStream: false,
+    requestType: as_external_api_multicastGroup_pb.AddApplicationDeviceToMulticastGroupRequest,
+    responseType: google_protobuf_empty_pb.Empty,
+    requestSerialize: serialize_api_AddApplicationDeviceToMulticastGroupRequest,
+    requestDeserialize: deserialize_api_AddApplicationDeviceToMulticastGroupRequest,
     responseSerialize: serialize_google_protobuf_Empty,
     responseDeserialize: deserialize_google_protobuf_Empty,
   },

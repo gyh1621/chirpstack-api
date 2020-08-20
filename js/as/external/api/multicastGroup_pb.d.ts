@@ -254,6 +254,36 @@ export namespace AddDeviceToMulticastGroupRequest {
   }
 }
 
+export class AddApplicationDeviceToMulticastGroupRequest extends jspb.Message {
+  getMulticastGroupId(): string;
+  setMulticastGroupId(value: string): void;
+
+  getApplicationId(): number;
+  setApplicationId(value: number): void;
+
+  clearDevEuisList(): void;
+  getDevEuisList(): Array<string>;
+  setDevEuisList(value: Array<string>): void;
+  addDevEuis(value: string, index?: number): string;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AddApplicationDeviceToMulticastGroupRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: AddApplicationDeviceToMulticastGroupRequest): AddApplicationDeviceToMulticastGroupRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: AddApplicationDeviceToMulticastGroupRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AddApplicationDeviceToMulticastGroupRequest;
+  static deserializeBinaryFromReader(message: AddApplicationDeviceToMulticastGroupRequest, reader: jspb.BinaryReader): AddApplicationDeviceToMulticastGroupRequest;
+}
+
+export namespace AddApplicationDeviceToMulticastGroupRequest {
+  export type AsObject = {
+    multicastGroupId: string,
+    applicationId: number,
+    devEuisList: Array<string>,
+  }
+}
+
 export class RemoveDeviceFromMulticastGroupRequest extends jspb.Message {
   getMulticastGroupId(): string;
   setMulticastGroupId(value: string): void;
