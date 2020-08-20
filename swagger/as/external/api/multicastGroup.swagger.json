@@ -348,8 +348,11 @@
           "type": "string",
           "description": "Multicast-group ID (string formatted UUID)."
         },
-        "devEUI": {
-          "type": "string",
+        "devEUIS": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
           "description": "Device EUI (HEX encoded string).\nNote that the device must be under the same service-profile as the\nmulticast-group."
         }
       }

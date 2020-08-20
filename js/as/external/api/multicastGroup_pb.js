@@ -1751,12 +1751,19 @@ proto.api.DeleteMulticastGroupRequest.prototype.setId = function(value) {
  * @constructor
  */
 proto.api.AddDeviceToMulticastGroupRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.api.AddDeviceToMulticastGroupRequest.repeatedFields_, null);
 };
 goog.inherits(proto.api.AddDeviceToMulticastGroupRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.api.AddDeviceToMulticastGroupRequest.displayName = 'proto.api.AddDeviceToMulticastGroupRequest';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.api.AddDeviceToMulticastGroupRequest.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1786,7 +1793,7 @@ proto.api.AddDeviceToMulticastGroupRequest.prototype.toObject = function(opt_inc
 proto.api.AddDeviceToMulticastGroupRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     multicastGroupId: msg.getMulticastGroupId(),
-    devEui: msg.getDevEui()
+    devEuisList: jspb.Message.getField(msg, 2)
   };
 
   if (includeInstance) {
@@ -1829,7 +1836,8 @@ proto.api.AddDeviceToMulticastGroupRequest.deserializeBinaryFromReader = functio
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDevEui(value);
+      msg.getDevEuisList().push(value);
+      msg.setDevEuisList(msg.getDevEuisList());
       break;
     default:
       reader.skipField();
@@ -1876,9 +1884,9 @@ proto.api.AddDeviceToMulticastGroupRequest.prototype.serializeBinaryToWriter = f
       f
     );
   }
-  f = this.getDevEui();
+  f = this.getDevEuisList();
   if (f.length > 0) {
-    writer.writeString(
+    writer.writeRepeatedString(
       2,
       f
     );
@@ -1911,17 +1919,24 @@ proto.api.AddDeviceToMulticastGroupRequest.prototype.setMulticastGroupId = funct
 
 
 /**
- * optional string dev_eui = 2;
- * @return {string}
+ * repeated string dev_euis = 2;
+ * If you change this array by adding, removing or replacing elements, or if you
+ * replace the array itself, then you must call the setter to update it.
+ * @return {!Array.<string>}
  */
-proto.api.AddDeviceToMulticastGroupRequest.prototype.getDevEui = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+proto.api.AddDeviceToMulticastGroupRequest.prototype.getDevEuisList = function() {
+  return /** @type {!Array.<string>} */ (jspb.Message.getField(this, 2));
 };
 
 
-/** @param {string} value  */
-proto.api.AddDeviceToMulticastGroupRequest.prototype.setDevEui = function(value) {
-  jspb.Message.setField(this, 2, value);
+/** @param {Array.<string>} value  */
+proto.api.AddDeviceToMulticastGroupRequest.prototype.setDevEuisList = function(value) {
+  jspb.Message.setField(this, 2, value || []);
+};
+
+
+proto.api.AddDeviceToMulticastGroupRequest.prototype.clearDevEuisList = function() {
+  jspb.Message.setField(this, 2, []);
 };
 
 

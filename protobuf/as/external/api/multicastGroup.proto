@@ -183,7 +183,7 @@ message AddDeviceToMulticastGroupRequest {
     // Device EUI (HEX encoded string).
     // Note that the device must be under the same service-profile as the
     // multicast-group.
-    string dev_eui = 2 [json_name = "devEUI"];
+    repeated string dev_euis = 2 [json_name="devEUIS"];
 }
 
 message RemoveDeviceFromMulticastGroupRequest {

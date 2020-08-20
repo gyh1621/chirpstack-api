@@ -232,8 +232,10 @@ export class AddDeviceToMulticastGroupRequest extends jspb.Message {
   getMulticastGroupId(): string;
   setMulticastGroupId(value: string): void;
 
-  getDevEui(): string;
-  setDevEui(value: string): void;
+  clearDevEuisList(): void;
+  getDevEuisList(): Array<string>;
+  setDevEuisList(value: Array<string>): void;
+  addDevEuis(value: string, index?: number): string;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AddDeviceToMulticastGroupRequest.AsObject;
@@ -248,7 +250,7 @@ export class AddDeviceToMulticastGroupRequest extends jspb.Message {
 export namespace AddDeviceToMulticastGroupRequest {
   export type AsObject = {
     multicastGroupId: string,
-    devEui: string,
+    devEuisList: Array<string>,
   }
 }
 
