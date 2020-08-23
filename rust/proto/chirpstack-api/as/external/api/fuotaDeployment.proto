@@ -136,6 +136,9 @@ message FUOTADeploymentListItem {
 
     // Next step after.
     google.protobuf.Timestamp next_step_after = 6;
+
+    // Deployment type.
+    string type = 7;
 }
 
 message CreateFUOTADeploymentForDeviceRequest {

@@ -106,6 +106,9 @@ export class FUOTADeploymentListItem extends jspb.Message {
   getNextStepAfter(): google_protobuf_timestamp_pb.Timestamp | undefined;
   setNextStepAfter(value?: google_protobuf_timestamp_pb.Timestamp): void;
 
+  getType(): string;
+  setType(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): FUOTADeploymentListItem.AsObject;
   static toObject(includeInstance: boolean, msg: FUOTADeploymentListItem): FUOTADeploymentListItem.AsObject;
@@ -124,6 +127,7 @@ export namespace FUOTADeploymentListItem {
     name: string,
     state: string,
     nextStepAfter?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    type: string,
   }
 }
 

@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z7github.com/gyh1621/chirpstack-api/go/v3/as/external/api',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n7chirpstack-api/as_pb/external/api/fuotaDeployment.proto\x12\x03\x61pi\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x36\x63hirpstack-api/as_pb/external/api/multicastGroup.proto\"\xd7\x02\n\x0f\x46UOTADeployment\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bmc_group_id\x18\x03 \x01(\t\x12+\n\ngroup_type\x18\x04 \x01(\x0e\x32\x17.api.MulticastGroupType\x12\n\n\x02\x64r\x18\x05 \x01(\r\x12\x11\n\tfrequency\x18\x06 \x01(\r\x12\x0f\n\x07payload\x18\x07 \x01(\x0c\x12\x12\n\nredundancy\x18\x08 \x01(\r\x12\x11\n\tfrag_algo\x18\t \x01(\r\x12\x19\n\x11multicast_timeout\x18\n \x01(\r\x12\x32\n\x0funicast_timeout\x18\x0b \x01(\x0b\x32\x19.google.protobuf.Duration\x12\r\n\x05state\x18\x0c \x01(\t\x12\x33\n\x0fnext_step_after\x18\r \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xd7\x01\n\x17\x46UOTADeploymentListItem\x12\n\n\x02id\x18\x01 \x01(\t\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\r\n\x05state\x18\x05 \x01(\t\x12\x33\n\x0fnext_step_after\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"p\n%CreateFUOTADeploymentForDeviceRequest\x12\x17\n\x07\x64\x65v_eui\x18\x01 \x01(\tR\x06\x64\x65vEUI\x12.\n\x10\x66uota_deployment\x18\x02 \x01(\x0b\x32\x14.api.FUOTADeployment\"4\n&CreateFUOTADeploymentForDeviceResponse\x12\n\n\x02id\x18\x01 \x01(\t\"}\n$CreateFUOTADeploymentForGroupRequest\x12%\n\x0bmc_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12.\n\x10\x66uota_deployment\x18\x02 \x01(\x0b\x32\x14.api.FUOTADeployment\"3\n%CreateFUOTADeploymentForGroupResponse\x12\n\n\x02id\x18\x01 \x01(\t\"\'\n\x19GetFUOTADeploymentRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\xac\x01\n\x1aGetFUOTADeploymentResponse\x12.\n\x10\x66uota_deployment\x18\x01 \x01(\x0b\x32\x14.api.FUOTADeployment\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x1aListFUOTADeploymentRequest\x12\r\n\x05limit\x18\x01 \x01(\x03\x12\x0e\n\x06offset\x18\x02 \x01(\x03\x12%\n\x0e\x61pplication_id\x18\x03 \x01(\x03R\rapplicationID\x12\x17\n\x07\x64\x65v_eui\x18\x04 \x01(\tR\x06\x64\x65vEUI\"`\n\x1bListFUOTADeploymentResponse\x12\x13\n\x0btotal_count\x18\x01 \x01(\x03\x12,\n\x06result\x18\x02 \x03(\x0b\x32\x1c.api.FUOTADeploymentListItem\"r\n!ListFUOTADeploymentDevicesRequest\x12.\n\x13\x66uota_deployment_id\x18\x01 \x01(\tR\x11\x66uotaDeploymentID\x12\r\n\x05limit\x18\x02 \x01(\x03\x12\x0e\n\x06offset\x18\x03 \x01(\x03\"j\n\x1fGetFUOTADeploymentDeviceRequest\x12.\n\x13\x66uota_deployment_id\x18\x01 \x01(\tR\x11\x66uotaDeploymentID\x12\x17\n\x07\x64\x65v_eui\x18\x02 \x01(\tR\x06\x64\x65vEUI\"a\n GetFUOTADeploymentDeviceResponse\x12=\n\x11\x64\x65ployment_device\x18\x01 \x01(\x0b\x32\".api.FUOTADeploymentDeviceListItem\"m\n\"ListFUOTADeploymentDevicesResponse\x12\x13\n\x0btotal_count\x18\x01 \x01(\x03\x12\x32\n\x06result\x18\x02 \x03(\x0b\x32\".api.FUOTADeploymentDeviceListItem\"\xf4\x01\n\x1d\x46UOTADeploymentDeviceListItem\x12\x17\n\x07\x64\x65v_eui\x18\x01 \x01(\tR\x06\x64\x65vEUI\x12\x13\n\x0b\x64\x65vice_name\x18\x02 \x01(\t\x12.\n\x05state\x18\x03 \x01(\x0e\x32\x1f.api.FUOTADeploymentDeviceState\x12\x15\n\rerror_message\x18\x04 \x01(\t\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp*A\n\x1a\x46UOTADeploymentDeviceState\x12\x0b\n\x07PENDING\x10\x00\x12\x0b\n\x07SUCCESS\x10\x01\x12\t\n\x05\x45RROR\x10\x02\x32\x94\x07\n\x16\x46UOTADeploymentService\x12\x9f\x01\n\x0f\x43reateForDevice\x12*.api.CreateFUOTADeploymentForDeviceRequest\x1a+.api.CreateFUOTADeploymentForDeviceResponse\"3\x82\xd3\xe4\x93\x02-\"(/api/devices/{dev_eui}/fuota-deployments:\x01*\x12\xa9\x01\n\x0e\x43reateForGroup\x12).api.CreateFUOTADeploymentForGroupRequest\x1a*.api.CreateFUOTADeploymentForGroupResponse\"@\x82\xd3\xe4\x93\x02:\"5/api/multicast-groups/{mc_group_id}/fuota-deployments:\x01*\x12k\n\x03Get\x12\x1e.api.GetFUOTADeploymentRequest\x1a\x1f.api.GetFUOTADeploymentResponse\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/api/fuota-deployments/{id}\x12i\n\x04List\x12\x1f.api.ListFUOTADeploymentRequest\x1a .api.ListFUOTADeploymentResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/api/fuota-deployments\x12\xaa\x01\n\x13GetDeploymentDevice\x12$.api.GetFUOTADeploymentDeviceRequest\x1a%.api.GetFUOTADeploymentDeviceResponse\"F\x82\xd3\xe4\x93\x02@\x12>/api/fuota-deployments/{fuota_deployment_id}/devices/{dev_eui}\x12\xa6\x01\n\x15ListDeploymentDevices\x12&.api.ListFUOTADeploymentDevicesRequest\x1a\'.api.ListFUOTADeploymentDevicesResponse\"<\x82\xd3\xe4\x93\x02\x36\x12\x34/api/fuota-deployments/{fuota_deployment_id}/devicesB9Z7github.com/gyh1621/chirpstack-api/go/v3/as/external/apib\x06proto3'
+  serialized_pb=b'\n7chirpstack-api/as_pb/external/api/fuotaDeployment.proto\x12\x03\x61pi\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x36\x63hirpstack-api/as_pb/external/api/multicastGroup.proto\"\xd7\x02\n\x0f\x46UOTADeployment\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bmc_group_id\x18\x03 \x01(\t\x12+\n\ngroup_type\x18\x04 \x01(\x0e\x32\x17.api.MulticastGroupType\x12\n\n\x02\x64r\x18\x05 \x01(\r\x12\x11\n\tfrequency\x18\x06 \x01(\r\x12\x0f\n\x07payload\x18\x07 \x01(\x0c\x12\x12\n\nredundancy\x18\x08 \x01(\r\x12\x11\n\tfrag_algo\x18\t \x01(\r\x12\x19\n\x11multicast_timeout\x18\n \x01(\r\x12\x32\n\x0funicast_timeout\x18\x0b \x01(\x0b\x32\x19.google.protobuf.Duration\x12\r\n\x05state\x18\x0c \x01(\t\x12\x33\n\x0fnext_step_after\x18\r \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xe5\x01\n\x17\x46UOTADeploymentListItem\x12\n\n\x02id\x18\x01 \x01(\t\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\r\n\x05state\x18\x05 \x01(\t\x12\x33\n\x0fnext_step_after\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0c\n\x04type\x18\x07 \x01(\t\"p\n%CreateFUOTADeploymentForDeviceRequest\x12\x17\n\x07\x64\x65v_eui\x18\x01 \x01(\tR\x06\x64\x65vEUI\x12.\n\x10\x66uota_deployment\x18\x02 \x01(\x0b\x32\x14.api.FUOTADeployment\"4\n&CreateFUOTADeploymentForDeviceResponse\x12\n\n\x02id\x18\x01 \x01(\t\"}\n$CreateFUOTADeploymentForGroupRequest\x12%\n\x0bmc_group_id\x18\x01 \x01(\tR\x10multicastGroupID\x12.\n\x10\x66uota_deployment\x18\x02 \x01(\x0b\x32\x14.api.FUOTADeployment\"3\n%CreateFUOTADeploymentForGroupResponse\x12\n\n\x02id\x18\x01 \x01(\t\"\'\n\x19GetFUOTADeploymentRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\xac\x01\n\x1aGetFUOTADeploymentResponse\x12.\n\x10\x66uota_deployment\x18\x01 \x01(\x0b\x32\x14.api.FUOTADeployment\x12.\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"{\n\x1aListFUOTADeploymentRequest\x12\r\n\x05limit\x18\x01 \x01(\x03\x12\x0e\n\x06offset\x18\x02 \x01(\x03\x12%\n\x0e\x61pplication_id\x18\x03 \x01(\x03R\rapplicationID\x12\x17\n\x07\x64\x65v_eui\x18\x04 \x01(\tR\x06\x64\x65vEUI\"`\n\x1bListFUOTADeploymentResponse\x12\x13\n\x0btotal_count\x18\x01 \x01(\x03\x12,\n\x06result\x18\x02 \x03(\x0b\x32\x1c.api.FUOTADeploymentListItem\"r\n!ListFUOTADeploymentDevicesRequest\x12.\n\x13\x66uota_deployment_id\x18\x01 \x01(\tR\x11\x66uotaDeploymentID\x12\r\n\x05limit\x18\x02 \x01(\x03\x12\x0e\n\x06offset\x18\x03 \x01(\x03\"j\n\x1fGetFUOTADeploymentDeviceRequest\x12.\n\x13\x66uota_deployment_id\x18\x01 \x01(\tR\x11\x66uotaDeploymentID\x12\x17\n\x07\x64\x65v_eui\x18\x02 \x01(\tR\x06\x64\x65vEUI\"a\n GetFUOTADeploymentDeviceResponse\x12=\n\x11\x64\x65ployment_device\x18\x01 \x01(\x0b\x32\".api.FUOTADeploymentDeviceListItem\"m\n\"ListFUOTADeploymentDevicesResponse\x12\x13\n\x0btotal_count\x18\x01 \x01(\x03\x12\x32\n\x06result\x18\x02 \x03(\x0b\x32\".api.FUOTADeploymentDeviceListItem\"\xf4\x01\n\x1d\x46UOTADeploymentDeviceListItem\x12\x17\n\x07\x64\x65v_eui\x18\x01 \x01(\tR\x06\x64\x65vEUI\x12\x13\n\x0b\x64\x65vice_name\x18\x02 \x01(\t\x12.\n\x05state\x18\x03 \x01(\x0e\x32\x1f.api.FUOTADeploymentDeviceState\x12\x15\n\rerror_message\x18\x04 \x01(\t\x12.\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp*A\n\x1a\x46UOTADeploymentDeviceState\x12\x0b\n\x07PENDING\x10\x00\x12\x0b\n\x07SUCCESS\x10\x01\x12\t\n\x05\x45RROR\x10\x02\x32\x94\x07\n\x16\x46UOTADeploymentService\x12\x9f\x01\n\x0f\x43reateForDevice\x12*.api.CreateFUOTADeploymentForDeviceRequest\x1a+.api.CreateFUOTADeploymentForDeviceResponse\"3\x82\xd3\xe4\x93\x02-\"(/api/devices/{dev_eui}/fuota-deployments:\x01*\x12\xa9\x01\n\x0e\x43reateForGroup\x12).api.CreateFUOTADeploymentForGroupRequest\x1a*.api.CreateFUOTADeploymentForGroupResponse\"@\x82\xd3\xe4\x93\x02:\"5/api/multicast-groups/{mc_group_id}/fuota-deployments:\x01*\x12k\n\x03Get\x12\x1e.api.GetFUOTADeploymentRequest\x1a\x1f.api.GetFUOTADeploymentResponse\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/api/fuota-deployments/{id}\x12i\n\x04List\x12\x1f.api.ListFUOTADeploymentRequest\x1a .api.ListFUOTADeploymentResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/api/fuota-deployments\x12\xaa\x01\n\x13GetDeploymentDevice\x12$.api.GetFUOTADeploymentDeviceRequest\x1a%.api.GetFUOTADeploymentDeviceResponse\"F\x82\xd3\xe4\x93\x02@\x12>/api/fuota-deployments/{fuota_deployment_id}/devices/{dev_eui}\x12\xa6\x01\n\x15ListDeploymentDevices\x12&.api.ListFUOTADeploymentDevicesRequest\x1a\'.api.ListFUOTADeploymentDevicesResponse\"<\x82\xd3\xe4\x93\x02\x36\x12\x34/api/fuota-deployments/{fuota_deployment_id}/devicesB9Z7github.com/gyh1621/chirpstack-api/go/v3/as/external/apib\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.DESCRIPTOR,])
 
@@ -53,8 +53,8 @@ _FUOTADEPLOYMENTDEVICESTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2247,
-  serialized_end=2312,
+  serialized_start=2261,
+  serialized_end=2326,
 )
 _sym_db.RegisterEnumDescriptor(_FUOTADEPLOYMENTDEVICESTATE)
 
@@ -231,6 +231,13 @@ _FUOTADEPLOYMENTLISTITEM = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='api.FUOTADeploymentListItem.type', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -244,7 +251,7 @@ _FUOTADEPLOYMENTLISTITEM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=562,
-  serialized_end=777,
+  serialized_end=791,
 )
 
 
@@ -282,8 +289,8 @@ _CREATEFUOTADEPLOYMENTFORDEVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=779,
-  serialized_end=891,
+  serialized_start=793,
+  serialized_end=905,
 )
 
 
@@ -314,8 +321,8 @@ _CREATEFUOTADEPLOYMENTFORDEVICERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=893,
-  serialized_end=945,
+  serialized_start=907,
+  serialized_end=959,
 )
 
 
@@ -353,8 +360,8 @@ _CREATEFUOTADEPLOYMENTFORGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=947,
-  serialized_end=1072,
+  serialized_start=961,
+  serialized_end=1086,
 )
 
 
@@ -385,8 +392,8 @@ _CREATEFUOTADEPLOYMENTFORGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1074,
-  serialized_end=1125,
+  serialized_start=1088,
+  serialized_end=1139,
 )
 
 
@@ -417,8 +424,8 @@ _GETFUOTADEPLOYMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1127,
-  serialized_end=1166,
+  serialized_start=1141,
+  serialized_end=1180,
 )
 
 
@@ -463,8 +470,8 @@ _GETFUOTADEPLOYMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1169,
-  serialized_end=1341,
+  serialized_start=1183,
+  serialized_end=1355,
 )
 
 
@@ -516,8 +523,8 @@ _LISTFUOTADEPLOYMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1343,
-  serialized_end=1466,
+  serialized_start=1357,
+  serialized_end=1480,
 )
 
 
@@ -555,8 +562,8 @@ _LISTFUOTADEPLOYMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1468,
-  serialized_end=1564,
+  serialized_start=1482,
+  serialized_end=1578,
 )
 
 
@@ -601,8 +608,8 @@ _LISTFUOTADEPLOYMENTDEVICESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1566,
-  serialized_end=1680,
+  serialized_start=1580,
+  serialized_end=1694,
 )
 
 
@@ -640,8 +647,8 @@ _GETFUOTADEPLOYMENTDEVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1682,
-  serialized_end=1788,
+  serialized_start=1696,
+  serialized_end=1802,
 )
 
 
@@ -672,8 +679,8 @@ _GETFUOTADEPLOYMENTDEVICERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1790,
-  serialized_end=1887,
+  serialized_start=1804,
+  serialized_end=1901,
 )
 
 
@@ -711,8 +718,8 @@ _LISTFUOTADEPLOYMENTDEVICESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1889,
-  serialized_end=1998,
+  serialized_start=1903,
+  serialized_end=2012,
 )
 
 
@@ -778,8 +785,8 @@ _FUOTADEPLOYMENTDEVICELISTITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2001,
-  serialized_end=2245,
+  serialized_start=2015,
+  serialized_end=2259,
 )
 
 _FUOTADEPLOYMENT.fields_by_name['group_type'].enum_type = chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2._MULTICASTGROUPTYPE
@@ -932,8 +939,8 @@ _FUOTADEPLOYMENTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2315,
-  serialized_end=3231,
+  serialized_start=2329,
+  serialized_end=3245,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateForDevice',

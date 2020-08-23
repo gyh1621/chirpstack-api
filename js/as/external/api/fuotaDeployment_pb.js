@@ -621,7 +621,8 @@ proto.api.FUOTADeploymentListItem.toObject = function(includeInstance, msg) {
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     name: msg.getName(),
     state: msg.getState(),
-    nextStepAfter: (f = msg.getNextStepAfter()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    nextStepAfter: (f = msg.getNextStepAfter()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    type: msg.getType()
   };
 
   if (includeInstance) {
@@ -684,6 +685,10 @@ proto.api.FUOTADeploymentListItem.deserializeBinaryFromReader = function(msg, re
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setNextStepAfter(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setType(value);
       break;
     default:
       reader.skipField();
@@ -766,6 +771,13 @@ proto.api.FUOTADeploymentListItem.prototype.serializeBinaryToWriter = function (
       6,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = this.getType();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
     );
   }
 };
@@ -912,6 +924,21 @@ proto.api.FUOTADeploymentListItem.prototype.clearNextStepAfter = function() {
  */
 proto.api.FUOTADeploymentListItem.prototype.hasNextStepAfter = function() {
   return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional string type = 7;
+ * @return {string}
+ */
+proto.api.FUOTADeploymentListItem.prototype.getType = function() {
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+};
+
+
+/** @param {string} value  */
+proto.api.FUOTADeploymentListItem.prototype.setType = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 
