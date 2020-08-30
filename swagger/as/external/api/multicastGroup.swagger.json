@@ -339,6 +339,88 @@
         ]
       }
     },
+    "/api/multicast-groups/{multicast_group_id}/reset/{dev_eui}": {
+      "post": {
+        "summary": "ResetSetupItem resets the setup record of a device.",
+        "operationId": "ResetSetupItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "multicast_group_id",
+            "description": "Multicast-group ID (string formatted UUID).",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dev_eui",
+            "description": "Device EUI (HEX encoded string) to filter on.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "MulticastGroupService"
+        ]
+      }
+    },
+    "/api/multicast-groups/{multicast_group_id}/setup": {
+      "get": {
+        "summary": "ListSetup lists the setup records of a multicast group.",
+        "operationId": "ListSetup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiListMulticastGroupSetupItemsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "multicast_group_id",
+            "description": "Multicast-group ID (string formatted UUID).",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "description": "Max number of items to return.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "description": "Offset in the result-set (for pagination).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "devEUI",
+            "description": "Device EUI (HEX encoded string) to filter on.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "MulticastGroupService"
+        ]
+      }
+    },
     "/api/multicast-groups/{multicast_queue_item.multicast_group_id}/queue": {
       "post": {
         "summary": "Enqueue adds the given item to the multicast-queue.",
@@ -495,6 +577,22 @@
         }
       }
     },
+    "apiListMulticastGroupSetupItemsResponse": {
+      "type": "object",
+      "properties": {
+        "totalCount": {
+          "type": "string",
+          "format": "int64",
+          "description": "Total number of multicast-groups."
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiMulticastSetupItem"
+          }
+        }
+      }
+    },
     "apiMulticastGroup": {
       "type": "object",
       "properties": {
@@ -591,6 +689,53 @@
           "type": "string",
           "format": "byte",
           "description": "Base64 encoded data."
+        }
+      }
+    },
+    "apiMulticastSetupItem": {
+      "type": "object",
+      "properties": {
+        "multicastGroupID": {
+          "type": "string",
+          "description": "Multicast-group ID (string formatted UUID)."
+        },
+        "devEUI": {
+          "type": "string",
+          "description": "Device EUI (HEX encoded string) to filter on."
+        },
+        "state": {
+          "type": "string",
+          "title": "Setup Type"
+        },
+        "stateProvisioned": {
+          "type": "boolean",
+          "format": "boolean",
+          "description": "State provisioned."
+        },
+        "maximumRetryCount": {
+          "type": "integer",
+          "format": "int64",
+          "title": "Maximum retry Count"
+        },
+        "retryCount": {
+          "type": "integer",
+          "format": "int64",
+          "title": "Current Retry Count"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Created at timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp."
+        },
+        "retryAfter": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Next retry time."
         }
       }
     },

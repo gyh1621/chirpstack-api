@@ -19,6 +19,8 @@ interface IMulticastGroupServiceService extends grpc.ServiceDefinition<grpc.Unty
   enqueue: grpc.MethodDefinition<as_external_api_multicastGroup_pb.EnqueueMulticastQueueItemRequest, as_external_api_multicastGroup_pb.EnqueueMulticastQueueItemResponse>;
   flushQueue: grpc.MethodDefinition<as_external_api_multicastGroup_pb.FlushMulticastGroupQueueItemsRequest, google_protobuf_empty_pb.Empty>;
   listQueue: grpc.MethodDefinition<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>;
+  listSetup: grpc.MethodDefinition<as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsRequest, as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsResponse>;
+  resetSetupItem: grpc.MethodDefinition<as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, google_protobuf_empty_pb.Empty>;
 }
 
 export const MulticastGroupServiceService: IMulticastGroupServiceService;
@@ -58,4 +60,10 @@ export class MulticastGroupServiceClient extends grpc.Client {
   listQueue(argument: as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>): grpc.ClientUnaryCall;
   listQueue(argument: as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>): grpc.ClientUnaryCall;
   listQueue(argument: as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupQueueItemsResponse>): grpc.ClientUnaryCall;
+  listSetup(argument: as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsRequest, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsResponse>): grpc.ClientUnaryCall;
+  listSetup(argument: as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsResponse>): grpc.ClientUnaryCall;
+  listSetup(argument: as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsResponse>): grpc.ClientUnaryCall;
+  resetSetupItem(argument: as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  resetSetupItem(argument: as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  resetSetupItem(argument: as_external_api_multicastGroup_pb.ResetMulticastSetupRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
 }

@@ -90,6 +90,64 @@ export namespace MulticastGroupListItem {
   }
 }
 
+export class MulticastSetupItem extends jspb.Message {
+  getMulticastGroupId(): string;
+  setMulticastGroupId(value: string): void;
+
+  getDevEui(): string;
+  setDevEui(value: string): void;
+
+  getState(): string;
+  setState(value: string): void;
+
+  getStateProvisioned(): boolean;
+  setStateProvisioned(value: boolean): void;
+
+  getMaximumRetryCount(): number;
+  setMaximumRetryCount(value: number): void;
+
+  getRetryCount(): number;
+  setRetryCount(value: number): void;
+
+  hasCreatedAt(): boolean;
+  clearCreatedAt(): void;
+  getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): void;
+
+  hasUpdatedAt(): boolean;
+  clearUpdatedAt(): void;
+  getUpdatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setUpdatedAt(value?: google_protobuf_timestamp_pb.Timestamp): void;
+
+  hasRetryAfter(): boolean;
+  clearRetryAfter(): void;
+  getRetryAfter(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setRetryAfter(value?: google_protobuf_timestamp_pb.Timestamp): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MulticastSetupItem.AsObject;
+  static toObject(includeInstance: boolean, msg: MulticastSetupItem): MulticastSetupItem.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MulticastSetupItem, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MulticastSetupItem;
+  static deserializeBinaryFromReader(message: MulticastSetupItem, reader: jspb.BinaryReader): MulticastSetupItem;
+}
+
+export namespace MulticastSetupItem {
+  export type AsObject = {
+    multicastGroupId: string,
+    devEui: string,
+    state: string,
+    stateProvisioned: boolean,
+    maximumRetryCount: number,
+    retryCount: number,
+    createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    retryAfter?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+  }
+}
+
 export class CreateMulticastGroupRequest extends jspb.Message {
   hasMulticastGroup(): boolean;
   clearMulticastGroup(): void;
@@ -509,6 +567,88 @@ export class ListMulticastGroupQueueItemsResponse extends jspb.Message {
 export namespace ListMulticastGroupQueueItemsResponse {
   export type AsObject = {
     multicastQueueItemsList: Array<MulticastQueueItem.AsObject>,
+  }
+}
+
+export class ListMulticastGroupSetupItemsRequest extends jspb.Message {
+  getLimit(): number;
+  setLimit(value: number): void;
+
+  getOffset(): number;
+  setOffset(value: number): void;
+
+  getDevEui(): string;
+  setDevEui(value: string): void;
+
+  getMulticastGroupId(): string;
+  setMulticastGroupId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListMulticastGroupSetupItemsRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ListMulticastGroupSetupItemsRequest): ListMulticastGroupSetupItemsRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ListMulticastGroupSetupItemsRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListMulticastGroupSetupItemsRequest;
+  static deserializeBinaryFromReader(message: ListMulticastGroupSetupItemsRequest, reader: jspb.BinaryReader): ListMulticastGroupSetupItemsRequest;
+}
+
+export namespace ListMulticastGroupSetupItemsRequest {
+  export type AsObject = {
+    limit: number,
+    offset: number,
+    devEui: string,
+    multicastGroupId: string,
+  }
+}
+
+export class ListMulticastGroupSetupItemsResponse extends jspb.Message {
+  getTotalCount(): number;
+  setTotalCount(value: number): void;
+
+  clearResultList(): void;
+  getResultList(): Array<MulticastSetupItem>;
+  setResultList(value: Array<MulticastSetupItem>): void;
+  addResult(value?: MulticastSetupItem, index?: number): MulticastSetupItem;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListMulticastGroupSetupItemsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ListMulticastGroupSetupItemsResponse): ListMulticastGroupSetupItemsResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ListMulticastGroupSetupItemsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListMulticastGroupSetupItemsResponse;
+  static deserializeBinaryFromReader(message: ListMulticastGroupSetupItemsResponse, reader: jspb.BinaryReader): ListMulticastGroupSetupItemsResponse;
+}
+
+export namespace ListMulticastGroupSetupItemsResponse {
+  export type AsObject = {
+    totalCount: number,
+    resultList: Array<MulticastSetupItem.AsObject>,
+  }
+}
+
+export class ResetMulticastSetupRequest extends jspb.Message {
+  getMulticastGroupId(): string;
+  setMulticastGroupId(value: string): void;
+
+  getDevEui(): string;
+  setDevEui(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ResetMulticastSetupRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ResetMulticastSetupRequest): ResetMulticastSetupRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ResetMulticastSetupRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ResetMulticastSetupRequest;
+  static deserializeBinaryFromReader(message: ResetMulticastSetupRequest, reader: jspb.BinaryReader): ResetMulticastSetupRequest;
+}
+
+export namespace ResetMulticastSetupRequest {
+  export type AsObject = {
+    multicastGroupId: string,
+    devEui: string,
   }
 }
 

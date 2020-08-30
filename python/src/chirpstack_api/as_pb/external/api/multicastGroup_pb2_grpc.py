@@ -71,6 +71,16 @@ class MulticastGroupServiceStub(object):
                 request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupQueueItemsRequest.SerializeToString,
                 response_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupQueueItemsResponse.FromString,
                 )
+        self.ListSetup = channel.unary_unary(
+                '/api.MulticastGroupService/ListSetup',
+                request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupSetupItemsRequest.SerializeToString,
+                response_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupSetupItemsResponse.FromString,
+                )
+        self.ResetSetupItem = channel.unary_unary(
+                '/api.MulticastGroupService/ResetSetupItem',
+                request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ResetMulticastSetupRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
 
 
 class MulticastGroupServiceServicer(object):
@@ -154,6 +164,20 @@ class MulticastGroupServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListSetup(self, request, context):
+        """ListSetup lists the setup records of a multicast group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ResetSetupItem(self, request, context):
+        """ResetSetupItem resets the setup record of a device.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MulticastGroupServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -211,6 +235,16 @@ def add_MulticastGroupServiceServicer_to_server(servicer, server):
                     servicer.ListQueue,
                     request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupQueueItemsRequest.FromString,
                     response_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupQueueItemsResponse.SerializeToString,
+            ),
+            'ListSetup': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSetup,
+                    request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupSetupItemsRequest.FromString,
+                    response_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupSetupItemsResponse.SerializeToString,
+            ),
+            'ResetSetupItem': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResetSetupItem,
+                    request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ResetMulticastSetupRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -407,5 +441,39 @@ class MulticastGroupService(object):
         return grpc.experimental.unary_unary(request, target, '/api.MulticastGroupService/ListQueue',
             chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupQueueItemsRequest.SerializeToString,
             chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupQueueItemsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSetup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.MulticastGroupService/ListSetup',
+            chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupSetupItemsRequest.SerializeToString,
+            chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ListMulticastGroupSetupItemsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ResetSetupItem(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.MulticastGroupService/ResetSetupItem',
+            chirpstack__api_dot_as__pb_dot_external_dot_api_dot_multicastGroup__pb2.ResetMulticastSetupRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

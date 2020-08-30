@@ -92,6 +92,20 @@ service MulticastGroupService {
             get: "/api/multicast-groups/{multicast_group_id}/queue"
         };
     }
+
+    // ListSetup lists the setup records of a multicast group.
+    rpc ListSetup(ListMulticastGroupSetupItemsRequest) returns (ListMulticastGroupSetupItemsResponse) {
+        option(google.api.http) = {
+            get: "/api/multicast-groups/{multicast_group_id}/setup"
+        };
+    }
+
+    // ResetSetupItem resets the setup record of a device.
+    rpc ResetSetupItem(ResetMulticastSetupRequest) returns (google.protobuf.Empty) {
+        option(google.api.http) = {
+            post: "/api/multicast-groups/{multicast_group_id}/reset/{dev_eui}"
+        };
+    }
 }
 
 enum MulticastGroupType {
@@ -146,6 +160,27 @@ message MulticastGroupListItem {
 
     // Service-profile name.
     string service_profile_name = 4;
+}
+
+message MulticastSetupItem {
+    // Multicast-group ID (string formatted UUID).
+    string multicast_group_id = 1 [json_name = "multicastGroupID"];
+    // Device EUI (HEX encoded string) to filter on.
+    string dev_eui = 2 [json_name = "devEUI"];
+    // Setup Type
+    string state = 3;
+    // State provisioned.
+    bool state_provisioned = 4;
+    // Maximum retry Count
+    uint32 maximum_retry_count = 5;
+    // Current Retry Count
+    uint32 retry_count = 6;
+    // Created at timestamp.
+    google.protobuf.Timestamp created_at = 7;
+    // Last update timestamp.
+    google.protobuf.Timestamp updated_at = 8;
+    // Next retry time.
+    google.protobuf.Timestamp retry_after = 9;
 }
 
 message CreateMulticastGroupRequest {
@@ -277,4 +312,32 @@ message ListMulticastGroupQueueItemsRequest {
 
 message ListMulticastGroupQueueItemsResponse {
     repeated MulticastQueueItem multicast_queue_items = 1;
+}
+
+message ListMulticastGroupSetupItemsRequest {
+    // Max number of items to return.
+    int64 limit = 1;
+
+    // Offset in the result-set (for pagination).
+    int64 offset = 2;
+
+    // Device EUI (HEX encoded string) to filter on.
+    string dev_eui = 3 [json_name = "devEUI"];
+
+    // Multicast-group ID (string formatted UUID).
+    string multicast_group_id = 4 [json_name = "multicastGroupID"];
+}
+
+message ListMulticastGroupSetupItemsResponse {
+    // Total number of multicast-groups.
+    int64 total_count = 1;
+
+    repeated MulticastSetupItem result = 2;
+}
+
+message ResetMulticastSetupRequest {
+    // Multicast-group ID (string formatted UUID).
+    string multicast_group_id = 1 [json_name = "multicastGroupID"];
+    // Device EUI (HEX encoded string) to filter on.
+    string dev_eui = 2 [json_name = "devEUI"];
 }

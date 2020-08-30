@@ -161,6 +161,28 @@ function deserialize_api_ListMulticastGroupResponse(buffer_arg) {
   return as_external_api_multicastGroup_pb.ListMulticastGroupResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_api_ListMulticastGroupSetupItemsRequest(arg) {
+  if (!(arg instanceof as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsRequest)) {
+    throw new Error('Expected argument of type api.ListMulticastGroupSetupItemsRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_ListMulticastGroupSetupItemsRequest(buffer_arg) {
+  return as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_api_ListMulticastGroupSetupItemsResponse(arg) {
+  if (!(arg instanceof as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsResponse)) {
+    throw new Error('Expected argument of type api.ListMulticastGroupSetupItemsResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_ListMulticastGroupSetupItemsResponse(buffer_arg) {
+  return as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_api_RemoveDeviceFromMulticastGroupRequest(arg) {
   if (!(arg instanceof as_external_api_multicastGroup_pb.RemoveDeviceFromMulticastGroupRequest)) {
     throw new Error('Expected argument of type api.RemoveDeviceFromMulticastGroupRequest');
@@ -170,6 +192,17 @@ function serialize_api_RemoveDeviceFromMulticastGroupRequest(arg) {
 
 function deserialize_api_RemoveDeviceFromMulticastGroupRequest(buffer_arg) {
   return as_external_api_multicastGroup_pb.RemoveDeviceFromMulticastGroupRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_api_ResetMulticastSetupRequest(arg) {
+  if (!(arg instanceof as_external_api_multicastGroup_pb.ResetMulticastSetupRequest)) {
+    throw new Error('Expected argument of type api.ResetMulticastSetupRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_ResetMulticastSetupRequest(buffer_arg) {
+  return as_external_api_multicastGroup_pb.ResetMulticastSetupRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_api_UpdateMulticastGroupRequest(arg) {
@@ -328,6 +361,30 @@ var MulticastGroupServiceService = exports.MulticastGroupServiceService = {
     requestDeserialize: deserialize_api_ListMulticastGroupQueueItemsRequest,
     responseSerialize: serialize_api_ListMulticastGroupQueueItemsResponse,
     responseDeserialize: deserialize_api_ListMulticastGroupQueueItemsResponse,
+  },
+  // ListSetup lists the setup records of a multicast group.
+  listSetup: {
+    path: '/api.MulticastGroupService/ListSetup',
+    requestStream: false,
+    responseStream: false,
+    requestType: as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsRequest,
+    responseType: as_external_api_multicastGroup_pb.ListMulticastGroupSetupItemsResponse,
+    requestSerialize: serialize_api_ListMulticastGroupSetupItemsRequest,
+    requestDeserialize: deserialize_api_ListMulticastGroupSetupItemsRequest,
+    responseSerialize: serialize_api_ListMulticastGroupSetupItemsResponse,
+    responseDeserialize: deserialize_api_ListMulticastGroupSetupItemsResponse,
+  },
+  // ResetSetupItem resets the setup record of a device.
+  resetSetupItem: {
+    path: '/api.MulticastGroupService/ResetSetupItem',
+    requestStream: false,
+    responseStream: false,
+    requestType: as_external_api_multicastGroup_pb.ResetMulticastSetupRequest,
+    responseType: google_protobuf_empty_pb.Empty,
+    requestSerialize: serialize_api_ResetMulticastSetupRequest,
+    requestDeserialize: deserialize_api_ResetMulticastSetupRequest,
+    responseSerialize: serialize_google_protobuf_Empty,
+    responseDeserialize: deserialize_google_protobuf_Empty,
   },
 };
 

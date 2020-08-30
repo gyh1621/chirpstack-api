@@ -255,4 +255,5 @@ message FUOTADeploymentDeviceListItem {
 
     // Updated at timestamp.
     google.protobuf.Timestamp updated_at = 6;
+
 }
