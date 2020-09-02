@@ -6,6 +6,7 @@ import * as google_api_annotations_pb from "../../../google/api/annotations_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as google_protobuf_duration_pb from "google-protobuf/google/protobuf/duration_pb";
 import * as as_external_api_multicastGroup_pb from "../../../as/external/api/multicastGroup_pb";
+import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
 export class FUOTADeployment extends jspb.Message {
   getId(): string;
@@ -476,6 +477,26 @@ export namespace FUOTADeploymentDeviceListItem {
     errorMessage: string,
     createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+  }
+}
+
+export class RetryFUOTADeploymentRequest extends jspb.Message {
+  getFuotaDeploymentId(): string;
+  setFuotaDeploymentId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RetryFUOTADeploymentRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: RetryFUOTADeploymentRequest): RetryFUOTADeploymentRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RetryFUOTADeploymentRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RetryFUOTADeploymentRequest;
+  static deserializeBinaryFromReader(message: RetryFUOTADeploymentRequest, reader: jspb.BinaryReader): RetryFUOTADeploymentRequest;
+}
+
+export namespace RetryFUOTADeploymentRequest {
+  export type AsObject = {
+    fuotaDeploymentId: string,
   }
 }
 

@@ -403,6 +403,60 @@ func local_request_FUOTADeploymentService_ListDeploymentDevices_0(ctx context.Co
 
 }
 
+func request_FUOTADeploymentService_RetryDeployment_0(ctx context.Context, marshaler runtime.Marshaler, client FUOTADeploymentServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq RetryFUOTADeploymentRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["fuota_deployment_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "fuota_deployment_id")
+	}
+
+	protoReq.FuotaDeploymentId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "fuota_deployment_id", err)
+	}
+
+	msg, err := client.RetryDeployment(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_FUOTADeploymentService_RetryDeployment_0(ctx context.Context, marshaler runtime.Marshaler, server FUOTADeploymentServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq RetryFUOTADeploymentRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["fuota_deployment_id"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "fuota_deployment_id")
+	}
+
+	protoReq.FuotaDeploymentId, err = runtime.String(val)
+
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "fuota_deployment_id", err)
+	}
+
+	msg, err := server.RetryDeployment(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 // RegisterFUOTADeploymentServiceHandlerServer registers the http handlers for service FUOTADeploymentService to "mux".
 // UnaryRPC     :call FUOTADeploymentServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
@@ -525,6 +579,26 @@ func RegisterFUOTADeploymentServiceHandlerServer(ctx context.Context, mux *runti
 		}
 
 		forward_FUOTADeploymentService_ListDeploymentDevices_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_FUOTADeploymentService_RetryDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_FUOTADeploymentService_RetryDeployment_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_FUOTADeploymentService_RetryDeployment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -689,6 +763,26 @@ func RegisterFUOTADeploymentServiceHandlerClient(ctx context.Context, mux *runti
 
 	})
 
+	mux.Handle("POST", pattern_FUOTADeploymentService_RetryDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_FUOTADeploymentService_RetryDeployment_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_FUOTADeploymentService_RetryDeployment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	return nil
 }
 
@@ -704,6 +798,8 @@ var (
 	pattern_FUOTADeploymentService_GetDeploymentDevice_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "fuota-deployments", "fuota_deployment_id", "devices", "dev_eui"}, "", runtime.AssumeColonVerbOpt(true)))
 
 	pattern_FUOTADeploymentService_ListDeploymentDevices_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"api", "fuota-deployments", "fuota_deployment_id", "devices"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_FUOTADeploymentService_RetryDeployment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"api", "fuota-deployments", "fuota_deployment_id", "retry"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
@@ -718,4 +814,6 @@ var (
 	forward_FUOTADeploymentService_GetDeploymentDevice_0 = runtime.ForwardResponseMessage
 
 	forward_FUOTADeploymentService_ListDeploymentDevices_0 = runtime.ForwardResponseMessage
+
+	forward_FUOTADeploymentService_RetryDeployment_0 = runtime.ForwardResponseMessage
 )

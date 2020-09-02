@@ -174,6 +174,31 @@
         ]
       }
     },
+    "/api/fuota-deployments/{fuota_deployment_id}/retry": {
+      "post": {
+        "operationId": "RetryDeployment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "fuota_deployment_id",
+            "description": "ID of the deployment (string formatted UUID).\nThis value will be automatically assigned on create.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "FUOTADeploymentService"
+        ]
+      }
+    },
     "/api/fuota-deployments/{id}": {
       "get": {
         "summary": "Get returns the fuota deployment for the given id.",

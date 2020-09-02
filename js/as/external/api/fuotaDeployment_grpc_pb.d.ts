@@ -4,6 +4,7 @@
 // file: as/external/api/fuotaDeployment.proto
 
 import * as as_external_api_fuotaDeployment_pb from "../../../as/external/api/fuotaDeployment_pb";
+import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 import * as grpc from "grpc";
 
 interface IFUOTADeploymentServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
@@ -13,6 +14,7 @@ interface IFUOTADeploymentServiceService extends grpc.ServiceDefinition<grpc.Unt
   list: grpc.MethodDefinition<as_external_api_fuotaDeployment_pb.ListFUOTADeploymentRequest, as_external_api_fuotaDeployment_pb.ListFUOTADeploymentResponse>;
   getDeploymentDevice: grpc.MethodDefinition<as_external_api_fuotaDeployment_pb.GetFUOTADeploymentDeviceRequest, as_external_api_fuotaDeployment_pb.GetFUOTADeploymentDeviceResponse>;
   listDeploymentDevices: grpc.MethodDefinition<as_external_api_fuotaDeployment_pb.ListFUOTADeploymentDevicesRequest, as_external_api_fuotaDeployment_pb.ListFUOTADeploymentDevicesResponse>;
+  retryDeployment: grpc.MethodDefinition<as_external_api_fuotaDeployment_pb.RetryFUOTADeploymentRequest, google_protobuf_empty_pb.Empty>;
 }
 
 export const FUOTADeploymentServiceService: IFUOTADeploymentServiceService;
@@ -37,4 +39,7 @@ export class FUOTADeploymentServiceClient extends grpc.Client {
   listDeploymentDevices(argument: as_external_api_fuotaDeployment_pb.ListFUOTADeploymentDevicesRequest, callback: grpc.requestCallback<as_external_api_fuotaDeployment_pb.ListFUOTADeploymentDevicesResponse>): grpc.ClientUnaryCall;
   listDeploymentDevices(argument: as_external_api_fuotaDeployment_pb.ListFUOTADeploymentDevicesRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_fuotaDeployment_pb.ListFUOTADeploymentDevicesResponse>): grpc.ClientUnaryCall;
   listDeploymentDevices(argument: as_external_api_fuotaDeployment_pb.ListFUOTADeploymentDevicesRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<as_external_api_fuotaDeployment_pb.ListFUOTADeploymentDevicesResponse>): grpc.ClientUnaryCall;
+  retryDeployment(argument: as_external_api_fuotaDeployment_pb.RetryFUOTADeploymentRequest, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  retryDeployment(argument: as_external_api_fuotaDeployment_pb.RetryFUOTADeploymentRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  retryDeployment(argument: as_external_api_fuotaDeployment_pb.RetryFUOTADeploymentRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
 }

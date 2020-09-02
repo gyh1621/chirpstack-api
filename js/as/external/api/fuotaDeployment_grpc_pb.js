@@ -7,6 +7,7 @@ var google_api_annotations_pb = require('../../../google/api/annotations_pb.js')
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 var google_protobuf_duration_pb = require('google-protobuf/google/protobuf/duration_pb.js');
 var as_external_api_multicastGroup_pb = require('../../../as/external/api/multicastGroup_pb.js');
+var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 
 function serialize_api_CreateFUOTADeploymentForDeviceRequest(arg) {
   if (!(arg instanceof as_external_api_fuotaDeployment_pb.CreateFUOTADeploymentForDeviceRequest)) {
@@ -140,6 +141,28 @@ function deserialize_api_ListFUOTADeploymentResponse(buffer_arg) {
   return as_external_api_fuotaDeployment_pb.ListFUOTADeploymentResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_api_RetryFUOTADeploymentRequest(arg) {
+  if (!(arg instanceof as_external_api_fuotaDeployment_pb.RetryFUOTADeploymentRequest)) {
+    throw new Error('Expected argument of type api.RetryFUOTADeploymentRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_api_RetryFUOTADeploymentRequest(buffer_arg) {
+  return as_external_api_fuotaDeployment_pb.RetryFUOTADeploymentRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_google_protobuf_Empty(arg) {
+  if (!(arg instanceof google_protobuf_empty_pb.Empty)) {
+    throw new Error('Expected argument of type google.protobuf.Empty');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_google_protobuf_Empty(buffer_arg) {
+  return google_protobuf_empty_pb.Empty.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 // FUOTADeploymentService is the service managing FUOTA deployments.
 var FUOTADeploymentServiceService = exports.FUOTADeploymentServiceService = {
@@ -214,6 +237,17 @@ var FUOTADeploymentServiceService = exports.FUOTADeploymentServiceService = {
     requestDeserialize: deserialize_api_ListFUOTADeploymentDevicesRequest,
     responseSerialize: serialize_api_ListFUOTADeploymentDevicesResponse,
     responseDeserialize: deserialize_api_ListFUOTADeploymentDevicesResponse,
+  },
+  retryDeployment: {
+    path: '/api.FUOTADeploymentService/RetryDeployment',
+    requestStream: false,
+    responseStream: false,
+    requestType: as_external_api_fuotaDeployment_pb.RetryFUOTADeploymentRequest,
+    responseType: google_protobuf_empty_pb.Empty,
+    requestSerialize: serialize_api_RetryFUOTADeploymentRequest,
+    requestDeserialize: deserialize_api_RetryFUOTADeploymentRequest,
+    responseSerialize: serialize_google_protobuf_Empty,
+    responseDeserialize: deserialize_google_protobuf_Empty,
   },
 };
 

@@ -3,6 +3,7 @@
 import grpc
 
 from chirpstack_api.as_pb.external.api import fuotaDeployment_pb2 as chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
 class FUOTADeploymentServiceStub(object):
@@ -44,6 +45,11 @@ class FUOTADeploymentServiceStub(object):
                 '/api.FUOTADeploymentService/ListDeploymentDevices',
                 request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.ListFUOTADeploymentDevicesRequest.SerializeToString,
                 response_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.ListFUOTADeploymentDevicesResponse.FromString,
+                )
+        self.RetryDeployment = channel.unary_unary(
+                '/api.FUOTADeploymentService/RetryDeployment',
+                request_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.RetryFUOTADeploymentRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
 
 
@@ -93,6 +99,12 @@ class FUOTADeploymentServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def RetryDeployment(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_FUOTADeploymentServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -125,6 +137,11 @@ def add_FUOTADeploymentServiceServicer_to_server(servicer, server):
                     servicer.ListDeploymentDevices,
                     request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.ListFUOTADeploymentDevicesRequest.FromString,
                     response_serializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.ListFUOTADeploymentDevicesResponse.SerializeToString,
+            ),
+            'RetryDeployment': grpc.unary_unary_rpc_method_handler(
+                    servicer.RetryDeployment,
+                    request_deserializer=chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.RetryFUOTADeploymentRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -236,5 +253,22 @@ class FUOTADeploymentService(object):
         return grpc.experimental.unary_unary(request, target, '/api.FUOTADeploymentService/ListDeploymentDevices',
             chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.ListFUOTADeploymentDevicesRequest.SerializeToString,
             chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.ListFUOTADeploymentDevicesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RetryDeployment(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.FUOTADeploymentService/RetryDeployment',
+            chirpstack__api_dot_as__pb_dot_external_dot_api_dot_fuotaDeployment__pb2.RetryFUOTADeploymentRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
